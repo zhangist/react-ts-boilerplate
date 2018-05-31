@@ -38,6 +38,14 @@ const config = {
       template: "./src/index.html",
     }),
   ],
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM",
+    "react-router": "ReactRouter",
+    "react-router-dom": "ReactRouterDOM",
+    "lodash": "_",
+    "antd": "antd"
+  },
 };
 
 if (isDev) {
