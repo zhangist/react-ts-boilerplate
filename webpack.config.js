@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PACKAGE = require('./package.json');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV === "development" ? true : false;
 const NODE_ENV = isDev ? "development" : "production";
@@ -38,7 +37,6 @@ const config = {
       filename: "index.html",
       template: "./src/index.html",
     }),
-    new BundleAnalyzerPlugin(),
   ],
   externals: {
     "react": "React",
@@ -46,7 +44,11 @@ const config = {
     "react-router": "ReactRouter",
     "react-router-dom": "ReactRouterDOM",
     "lodash": "_",
-    "antd": "antd"
+    "antd": "antd",
+    // "styled-components": "StyledComponents",
+    // "redux": "redux",
+    // "react-redux": "ReactRedux",
+    // "redux-thunk":"ReduxThunk",
   },
 };
 
