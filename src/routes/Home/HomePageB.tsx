@@ -3,7 +3,7 @@ import * as Loadable from "react-loadable";
 
 export default () => {
   const LoadableComponent = Loadable({
-    loader: () => import("./components/HomePageB"),
+    loader: () => import(/* webpackChunkName: "homePageB" */ "./components/HomePageB"),
     loading: () => null,
   });
 

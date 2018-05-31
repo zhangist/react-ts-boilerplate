@@ -5,7 +5,7 @@ import homeReducer from "./modules/homeReducer";
 
 export default (store: any) => {
   const LoadableComponent = Loadable({
-    loader: () => import("./containers/HomeContainer"),
+    loader: () => import(/* webpackChunkName: "home" */ "./containers/HomeContainer"),
     loading: () => null,
     render: (loaded, props) => {
       // inject reducer

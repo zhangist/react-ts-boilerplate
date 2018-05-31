@@ -2,7 +2,7 @@ import * as React from "react";
 import * as Loadable from "react-loadable";
 
 const LoadableComponent = Loadable({
-  loader: () => import("./components/About"),
+  loader: () => import(/* webpackChunkName: "about" */ "./components/About"),
   loading: () => null,
 });
 
