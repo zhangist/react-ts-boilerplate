@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PACKAGE = require('./package.json');
+const uglify = require('uglifyjs-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === "development" ? true : false;
 const NODE_ENV = isDev ? "development" : "production";
@@ -57,6 +58,7 @@ const config = {
 if (isDev) {
   config.entry.app.unshift("webpack-dev-server/client?http://localhost:9000/");
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.plugins.push(new uglify());
   config.devServer = {
     contentBase: path.resolve(__dirname, "dist"),
     port: 9000,
