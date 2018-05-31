@@ -21,14 +21,14 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]: (state: any, action: any) => state + action.payload,
+  [COUNTER_INCREMENT]: (state: any, action: any) => ({ counter: state.counter + action.payload }),
 };
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0;
-export default function homeReducer(state = initialState, action: any) {
+const initialState = { counter: 0 };
+export function reducer(state = initialState, action: any) {
   const handler = ACTION_HANDLERS[action.type];
 
   return handler ? handler(state, action) : state;

@@ -16,6 +16,11 @@ export default class Home extends React.Component<any, any> {
         </Link>
         <Route path="/home/page-a" exact component={HomePageA()} />
         <Route path="/home/page-b" exact component={HomePageB()} />
+        <div>
+          <h3>redux test: </h3>
+          <span>counter: {this.props.state.home.counter}</span>
+          <button onClick={() => this.props.add()}>add counter</button>
+        </div>
       </div>
     );
   }
