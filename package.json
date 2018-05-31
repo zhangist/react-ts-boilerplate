@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "analyze": "webpack --config webpack.config.analyze.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -40,6 +41,7 @@
     "typescript": "~2.8.3",
     "webpack": "~4.10.1",
     "webpack-cli": "~2.1.4",
-    "webpack-dev-server": "~3.1.4"
+    "webpack-dev-server": "~3.1.4",
+    "webpack-bundle-analyzer": "~2.13.1"
   }
 }

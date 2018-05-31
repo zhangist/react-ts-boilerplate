@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PACKAGE = require('./package.json');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV === "development" ? true : false;
 const NODE_ENV = isDev ? "development" : "production";
@@ -37,6 +38,7 @@ const config = {
       filename: "index.html",
       template: "./src/index.html",
     }),
+    new BundleAnalyzerPlugin(),
   ],
   externals: {
     "react": "React",
@@ -47,6 +49,8 @@ const config = {
     "antd": "antd"
   },
 };
+
+
 
 if (isDev) {
   config.entry.app.unshift("webpack-dev-server/client?http://localhost:9000/");
