@@ -45,10 +45,10 @@ const config = {
     "react-router-dom": "ReactRouterDOM",
     "lodash": "_",
     "antd": "antd",
-    // "styled-components": "StyledComponents",
-    // "redux": "redux",
-    // "react-redux": "ReactRedux",
-    // "redux-thunk":"ReduxThunk",
+    "styled-components": "styled",
+    "redux": "Redux",
+    "react-redux": "ReactRedux",
+    "redux-thunk": "ReduxThunk",
   },
 };
 
