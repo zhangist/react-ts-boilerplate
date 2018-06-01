@@ -53,8 +53,6 @@ const config = {
   },
 };
 
-
-
 if (isDev) {
   config.entry.app.unshift("webpack-dev-server/client?http://localhost:9000/");
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
