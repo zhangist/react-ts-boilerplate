@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "analyze": "webpack --config webpack.config.analyze.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -28,7 +29,6 @@
     "@types/react-redux": "~6.0.0",
     "@types/react-router": "~4.0.25",
     "@types/react-router-dom": "~4.2.6",
-    "@types/redux": "~3.6.0",
     "awesome-typescript-loader": "~5.0.0",
     "babel-core": "~6.26.3",
     "babel-loader": "~7.1.4",
@@ -39,7 +39,9 @@
     "prettier": "~1.13.2",
     "tslint": "~5.10.0",
     "typescript": "~2.8.3",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "~4.10.1",
+    "webpack-bundle-analyzer": "~2.13.1",
     "webpack-cli": "~2.1.4",
     "webpack-dev-server": "~3.1.4"
   }
