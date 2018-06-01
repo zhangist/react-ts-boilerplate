@@ -7,7 +7,6 @@ import createStore from "../store/createStore";
 
 const initialState = (window as any).__INITIAL_STATE__;
 const store = createStore(initialState);
-
 const routes = createRoutes(store);
 
 const RouteWithSubRoutes = (route: any) => (
@@ -26,7 +25,7 @@ const RouteWithSubRoutes = (route: any) => (
   />
 );
 
-export default class AppContainer extends React.Component {
+export default class AppContainer extends React.Component<any, any> {
   public render() {
     return (
       <Provider store={store}>
@@ -34,7 +33,7 @@ export default class AppContainer extends React.Component {
           <div>
             <Header />
             <div className="content">
-              {routes.map((route, index) => (
+              {routes.map((route: any, index: number) => (
                 <RouteWithSubRoutes key={index} {...route} />
               ))}
             </div>

@@ -20,6 +20,9 @@ export default class Home extends React.Component<any, any> {
           <h3>redux test: </h3>
           <span>counter: {this.props.state.home.counter}</span>
           <button onClick={() => this.props.add()}>add counter</button>
+          <br />
+          <span>location: {this.props.state.location}</span>
+          <button onClick={() => this.props.locationChange()}>change location</button>
         </div>
       </div>
     );

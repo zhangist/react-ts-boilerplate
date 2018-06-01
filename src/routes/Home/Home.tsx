@@ -4,17 +4,13 @@ import { injectReducer } from "../../store/reducers";
 import { reducer } from "./modules/home";
 
 export default (store: any) => {
+  // inject reducer
+  injectReducer(store, { key: "home", reducer });
+
   const LoadableComponent = Loadable({
     loader: () =>
       import(/* webpackChunkName: "home" */ "./containers/HomeContainer"),
     loading: () => null,
-    render: (loaded, props) => {
-      // inject reducer
-      injectReducer(store, { key: "home", reducer });
-
-      const Component = loaded.default;
-      return <Component {...props} />;
-    },
   });
 
   class Home extends React.Component {

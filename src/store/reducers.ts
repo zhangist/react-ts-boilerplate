@@ -9,6 +9,7 @@ export const makeRootReducer = (asyncReducers: any) => {
 };
 
 export const injectReducer = (store: any, { key, reducer }: any) => {
+  console.log(store);
   if (!store.asyncReducers) {
     store.asyncReducers = {};
   }
