@@ -1,23 +1,30 @@
 import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import Home from "../components/Home";
+import { connect, Dispatch } from "react-redux";
+import Home, { HomeProps } from "../components/Home";
 import { actions } from "../modules/home";
 import { locationChange } from "../../../store/location";
 
-const mapStateToProps = (state: any) => {
-  return { hello: "hello", state };
-};
+interface StateToProps {
+  state: HomeProps["state"];
+}
 
-const mapDispatchToProps = (dispatch: any) => {
+interface DispatchToProps {
+  add: HomeProps["add"];
+  locationChange: HomeProps["locationChange"];
+}
+
+const mapStateToProps = (state: any): StateToProps => ({ state });
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchToProps => {
   return {
     add: () => dispatch(actions.increment()),
     locationChange: () => dispatch(locationChange("/home")),
   };
 };
 
-const HomeContainer: any = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Home);
-
-export default withRouter(HomeContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Home),
+);

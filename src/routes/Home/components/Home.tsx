@@ -1,9 +1,22 @@
 import * as React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, RouteComponentProps } from "react-router-dom";
 import HomePageA from "../HomePageA";
 import HomePageB from "../HomePageB";
 
-export default class Home extends React.Component<any, any> {
+export interface HomeProps extends RouteComponentProps<{}> {
+  state: {
+    home: {
+      counter: number;
+    };
+    location: string;
+  };
+  add: () => void;
+  locationChange: () => void;
+}
+
+export interface HomeState {}
+
+export default class Home extends React.Component<HomeProps, HomeState> {
   public render() {
     return (
       <div>
@@ -22,7 +35,9 @@ export default class Home extends React.Component<any, any> {
           <button onClick={() => this.props.add()}>add counter</button>
           <br />
           <span>location: {this.props.state.location}</span>
-          <button onClick={() => this.props.locationChange()}>change location</button>
+          <button onClick={() => this.props.locationChange()}>
+            change location
+          </button>
         </div>
       </div>
     );

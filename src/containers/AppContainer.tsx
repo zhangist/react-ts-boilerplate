@@ -16,12 +16,6 @@ const RouteWithSubRoutes = (route: any) => (
       // pass the sub-routes down to keep nesting
       <route.component {...props} routes={route.routes} />
     )}
-    // children={props => [
-    //   route.routes &&
-    //     route.routes.map((r: any, index: number) => (
-    //       <RouteWithSubRoutes key={index} {...r} />
-    //     )),
-    // ]}
   />
 );
 
