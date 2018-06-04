@@ -3,22 +3,24 @@ import { Route, Link, RouteComponentProps } from "react-router-dom";
 import HomePageA from "../HomePageA";
 import HomePageB from "../HomePageB";
 
-export interface HomeProps extends RouteComponentProps<{ id: number }> {
+export interface StateToProps {
   state: {
     home: {
       counter: number;
     };
     location: string;
   };
+}
+export interface DispatchToProps {
   add: () => void;
   locationChange: () => void;
 }
-
+export interface OwnProps extends RouteComponentProps<{ id: number }> {}
+export interface HomeProps extends StateToProps, DispatchToProps, OwnProps {}
 export interface HomeState {}
 
 export default class Home extends React.Component<HomeProps, HomeState> {
   public render() {
-    console.log(this.props);
     return (
       <div>
         <h1>Home Page</h1>
