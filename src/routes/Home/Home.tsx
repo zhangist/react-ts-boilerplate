@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Loadable from "react-loadable";
 import { injectReducer } from "../../store/reducers";
-import { reducer } from "./modules/home";
+import reducer from "./modules/home/reducer";
 import Loading from "../../components/Loading";
 
 export default (store: any) => {
