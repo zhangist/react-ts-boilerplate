@@ -1,8 +1,6 @@
-const  BundleAnalyzerPlugin  =  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-process.env.NODE_ENV = 'production';
-process.env.ANALYZE = true;
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpackConfig = require('./webpack.config');
 
-webpackConfig.plugins = [new  BundleAnalyzerPlugin()]
+webpackConfig.plugins.push(new BundleAnalyzerPlugin({}));
+
 module.exports = webpackConfig;
