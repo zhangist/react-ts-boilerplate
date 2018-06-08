@@ -7,7 +7,7 @@ import Loading from "../../components/Loading";
 export default (store: any) => {
   const LoadableComponent = Loadable({
     loader: () =>
-      import(/* webpackChunkName: "explore" */ "./components/Explore"),
+      import(/* webpackChunkName: "explore" */ "./containers/ExploreContainer"),
     loading: () => <Loading />,
     render: (loaded, props) => {
       // inject reducer

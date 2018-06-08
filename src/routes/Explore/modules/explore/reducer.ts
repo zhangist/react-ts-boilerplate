@@ -1,12 +1,16 @@
 import { EXPLORE } from "./actionTypes";
 
-export type ReducerState = string;
-
-const ACTION_HANDLERS = {
-  [EXPLORE]: (state: any, action: any) => action.payload,
+export type ReducerState = {
+  value: string;
 };
 
-const initialState: ReducerState = "";
+const ACTION_HANDLERS = {
+  [EXPLORE]: (state: any, action: any) => ({ value: action.payload }),
+};
+
+const initialState: ReducerState = {
+  value: "",
+};
 
 export default function reducer(state = initialState, action: any) {
   const handler = ACTION_HANDLERS[action.type];
