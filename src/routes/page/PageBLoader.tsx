@@ -4,7 +4,7 @@ import Loading from "../../components/Loading";
 
 export default () => {
   const LoadableComponent = Loadable({
-    loader: () => import(/* webpackChunkName: "homePageB" */ "./components/HomePageB"),
+    loader: () => import(/* webpackChunkName: "pageB" */ "./containers/PageB"),
     loading: (props) => props.pastDelay ? <Loading /> : null,
   });
 

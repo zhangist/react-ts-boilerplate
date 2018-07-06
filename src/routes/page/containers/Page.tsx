@@ -1,19 +1,21 @@
 import * as React from "react";
 import { withRouter } from "react-router-dom";
-import { connect, Dispatch } from "react-redux";
-import { increment } from "../store/home/actions";
+import { Dispatch } from "redux";
+import { connect } from "react-redux";
+import { increment } from "../store/page/actions";
 import { RouteComponentProps } from "react-router-dom";
+import i18n from "../../../common/i18n";
 import { locationChange } from "../../../store/actions";
 import * as Styled from "../../../components/Styled";
 import HomeMenu from "../components/HomeMenu";
 import ReduxTest from "../components/ReduxTest";
 import UrlParamsTest from "../components/UrlParamsTest";
 
-export { default as reducer } from "../store/home/reducer";
+export { default as reducer } from "../store/page/reducer";
 
 interface StateToProps {
   state: {
-    home: {
+    page: {
       counter: number;
     };
     location: string;
@@ -23,21 +25,29 @@ interface DispatchToProps {
   add: () => void;
   locationChange: () => void;
 }
-interface OwnProps extends RouteComponentProps<{ id: number }> {}
+interface OwnProps extends RouteComponentProps<{ id: number }> {
+  i18nResources: any;
+}
 interface HomeProps extends StateToProps, DispatchToProps, OwnProps {}
 interface HomeState {}
 
 class Home extends React.Component<HomeProps, HomeState> {
+  constructor(props: HomeProps) {
+    super(props);
+
+    const { i18nResources } = props;
+    i18n.addResources(i18n.language, "page", i18nResources);
+  }
   public render() {
     return (
       <Styled.Content>
-        <Styled.PageTitle>Home Page</Styled.PageTitle>
+        <Styled.PageTitle>Page</Styled.PageTitle>
         <section>
           <HomeMenu />
         </section>
         <section>
           <ReduxTest
-            counter={this.props.state.home.counter}
+            counter={this.props.state.page.counter}
             location={this.props.state.location}
             add={this.props.add}
             locationChange={this.props.locationChange}

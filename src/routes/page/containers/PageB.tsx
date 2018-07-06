@@ -1,10 +1,10 @@
 import * as React from "react";
 
-export default class HomePageB extends React.Component {
+export default class PageB extends React.Component {
   public render() {
     return (
       <div>
-        <span>Home Page B</span>
+        <span>Page B</span>
       </div>
     );
   }

@@ -2,17 +2,17 @@ import * as React from "react";
 import * as Loadable from "react-loadable";
 import Loading from "../../components/Loading";
 
-export default (store: any) => {
+export default () => {
   const LoadableComponent = Loadable({
-    loader: () => import(/* webpackChunkName: "about" */ "./components/About"),
+    loader: () => import(/* webpackChunkName: "pageA" */ "./containers/PageA"),
     loading: (props) => props.pastDelay ? <Loading /> : null,
   });
 
-  class About extends React.Component {
+  class Component extends React.Component {
     public render() {
       return <LoadableComponent />;
     }
   }
 
-  return About;
+  return Component;
 };

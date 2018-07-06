@@ -1,6 +1,6 @@
-import Explore from "./Explore";
+import ExploreLoader from "./ExploreLoader";
 
 export default (store: any) => ({
   path: "/explore",
-  component: Explore(store),
+  component: ExploreLoader(store),
 });

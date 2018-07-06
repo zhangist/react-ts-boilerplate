@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const package = require('./package.json');
 
 const isDev = process.env.NODE_ENV === "development" ? true : false;
@@ -9,7 +10,7 @@ const NODE_ENV = isDev ? "development" : "production";
 const entry = {};
 const plugins = [];
 
-entry.app = ["./src/main.tsx"];
+entry.main = ["./src/main.tsx"];
 plugins.push(
   new webpack.DefinePlugin({
     VERSION: JSON.stringify(package.version),
@@ -20,11 +21,13 @@ plugins.push(
   new HtmlWebpackPlugin({
     filename: "index.html",
     template: "./src/index.html",
+    favicon: "./src/favicon.ico",
   })
 );
+plugins.push(new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]));
 
 if (isDev) {
-  entry.app.unshift("webpack-dev-server/client?http://localhost:9000/");
+  entry.main.unshift("webpack-dev-server/client?http://localhost:9000/");
   plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
@@ -68,6 +71,11 @@ const config = {
   devServer: {
     contentBase: path.resolve(__dirname, "src"),
     historyApiFallback: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+      },
+    },
     port: 9000,
     hot: true,
   },

@@ -1,6 +1,6 @@
-import About from "./About";
+import AboutLoader from "./AboutLoader";
 
 export default (store: any) => ({
   path: "/about",
-  component: About(store),
+  component: AboutLoader(store),
 });

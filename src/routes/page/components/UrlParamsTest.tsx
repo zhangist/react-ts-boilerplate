@@ -8,9 +8,9 @@ export interface UrlParamsTestProps {
 export default ({ id }: UrlParamsTestProps) => (
   <div>
     <h3>url params test:</h3>
-    <Link to="/home/1">Id-1</Link>
+    <Link to="/page/1">Id-1</Link>
     &nbsp;
-    <Link to="/home/2">Id-2</Link>
+    <Link to="/page/2">Id-2</Link>
     <div>id: {id}</div>
   </div>
 );
