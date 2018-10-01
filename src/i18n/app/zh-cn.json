@@ -1,6 +1,6 @@
 {
-  "page": "页面",
-  "Page": "页面",
-  "Explore": "发现",
-  "About": "关于"
+  "I18n Demo": "I18n 示例",
+  "Pages Demo": "Pages 示例",
+  "Redux Demo": "Redux 示例",
+  "Url Params Demo": "Url Params 示例"
 }

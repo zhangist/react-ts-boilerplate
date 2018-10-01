@@ -1,6 +1,7 @@
+import { Store } from "./store";
 import createRootReducer from "./createRootReducer";
 
-export default function injectReducer(store: any, { key, reducer }: any) {
+export default function injectReducer(store: Store, { key, reducer }: any) {
   if (!store.asyncReducers) {
     store.asyncReducers = {};
   }

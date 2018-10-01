@@ -2,15 +2,10 @@ import * as React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import createRoutes from "../routes";
-import createStore from "../common/createStore";
-import Header from "../components/Header";
+import routes from "../routes";
+import store from "../common/store";
 import i18n from "../common/i18n";
-import "../components/Styled/GlobalStyle";
-
-const initialState = (window as any).__INITIAL_STATE__;
-const store = createStore(initialState);
-const routes = createRoutes(store);
+import "../components/globalStyle";
 
 const RouteWithSubRoutes = (route: any) => (
   <Route
@@ -40,8 +35,7 @@ export default class AppContainer extends React.Component<AppProps, any> {
       <I18nextProvider i18n={i18n}>
         <Provider store={store}>
           <BrowserRouter>
-            <div>
-              <Header />
+            <div className="app">
               {routes.map((route: any, index: number) => (
                 <RouteWithSubRoutes key={index} {...route} />
               ))}

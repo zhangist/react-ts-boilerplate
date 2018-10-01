@@ -10,7 +10,7 @@ const NODE_ENV = isDev ? "development" : "production";
 const entry = {};
 const plugins = [];
 
-entry.main = ["./src/main.tsx"];
+entry.main = ["./src/index.tsx"];
 plugins.push(
   new webpack.DefinePlugin({
     VERSION: JSON.stringify(package.version),

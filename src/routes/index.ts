@@ -1,15 +1,4 @@
-import defaultRoutes from "./default/routes";
-import pageRoutes from "./page/routes";
-import exploreRoutes from "./explore/routes";
-import aboutRoutes from "./about/routes";
+import siteRoutes from "./site/routes";
+import userRoutes from "./user/routes";
 
-const createRoutes = (store: any) => {
-  return [
-    defaultRoutes(store),
-    ...pageRoutes(store),
-    exploreRoutes(store),
-    aboutRoutes(store),
-  ];
-};
-
-export default createRoutes;
+export default [...siteRoutes, ...userRoutes];
