@@ -10,13 +10,13 @@
 |  |-- [containers]            // [容器文件夹]
 |  |-- [store]                 // [store 文件夹]
 |  |-- Page.tsx                // 页面文件
-|-+ i18n-demo                  // i18n 示例文件夹 (子模块)
+|--+i18n-demo                  // i18n 示例文件夹 (子模块)
 |-- pages-demo                 // pages 示例文件夹 (子模块)
 |  |-- Page.tsx                // 页面文件
 |  |-- PageA.tsx               // 页面子模块 PageA
 |  |-- PageBVeryBig.tsx        // 页面子模块 PageBVeryBig
-|-+ redux-demo                 // redux 示例文件夹 (子模块)
-|-+ url-params-demo            // urlParams 示例文件夹 (子模块)
+|--+redux-demo                 // redux 示例文件夹 (子模块)
+|--+url-params-demo            // urlParams 示例文件夹 (子模块)
 |-- DefaultLoader.tsx          // default 示例 loader
 |-- I18nDemoLoader.tsx         // i18n 示例 loader
 |-- PageBVeryBigLoader.tsx     // pageBVeryBig 示例 loader
