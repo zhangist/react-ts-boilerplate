@@ -1,23 +1,26 @@
 import * as React from "react";
+import { Map } from "immutable";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import store from "../../../common/store";
 import injectReducer from "../../../common/injectReducer";
-import reducer, { IReduxState, ReduxState } from "./store/reducer";
+import reducer, { InitialState } from "./store/reducer";
+import { Counter } from "./store/states/counter";
+import { Friends } from "./store/states/friends";
+import { Hello } from "./store/states/hello";
+import { Profile } from "./store/states/profile";
 import { updateCounter } from "./store/actions";
-import Profile from "./components/Profile";
+import ProfileComponent from "./components/Profile";
 import * as App from "../../../components/app";
 
 // inject reducer
-if (!store.asyncReducers || !store.asyncReducers["site_reduxDemo"]) {
-  injectReducer(store, { key: "site_reduxDemo", reducer });
-}
+injectReducer(store, { key: "site_reduxDemo", reducer });
 
 export interface StateToProps {
-  counter: IReduxState["counter"];
-  friends: IReduxState["friends"];
-  hello: IReduxState["hello"];
-  profile: IReduxState["profile"];
+  counter: Counter;
+  friends: Friends;
+  hello: Hello;
+  profile: Profile;
 }
 export interface DispatchToProps {
   updateCounter: (value: number) => void;
@@ -25,18 +28,6 @@ export interface DispatchToProps {
 export interface OwnProps {}
 export interface PageProps extends StateToProps, DispatchToProps, OwnProps {}
 export interface PageState {}
-
-const mapStateToProps = (state: Map<"site_reduxDemo", ReduxState>): StateToProps => ({
-  counter: (state.get("site_reduxDemo") as ReduxState).get("counter") as IReduxState["counter"],
-  friends: (state.get("site_reduxDemo") as ReduxState).get("friends") as IReduxState["friends"],
-  hello: (state.get("site_reduxDemo") as ReduxState).get("hello") as IReduxState["hello"],
-  profile: (state.get("site_reduxDemo") as ReduxState).get("profile") as IReduxState["profile"],
-});
-const mapDispatchToProps = (dispatch: Dispatch): DispatchToProps => {
-  return {
-    updateCounter: value => dispatch(updateCounter(value)),
-  };
-};
 
 class Page extends React.Component<PageProps, PageState> {
   public render() {
@@ -73,7 +64,7 @@ class Page extends React.Component<PageProps, PageState> {
             </section>
             <section>
               <h4>Profile:</h4>
-              <Profile profile={this.props.profile} />
+              <ProfileComponent profile={this.props.profile} />
             </section>
           </div>
         </App.Content>
@@ -81,6 +72,21 @@ class Page extends React.Component<PageProps, PageState> {
     );
   }
 }
+
+const mapStateToProps = (state: Map<"site_reduxDemo", InitialState>): StateToProps => {
+  const reduxDemo = state.get("site_reduxDemo");
+  return {
+    counter: reduxDemo.get("counter"),
+    friends: reduxDemo.get("friends"),
+    hello: reduxDemo.get("hello"),
+    profile: reduxDemo.get("profile"),
+  };
+};
+const mapDispatchToProps = (dispatch: Dispatch): DispatchToProps => {
+  return {
+    updateCounter: value => dispatch(updateCounter(value)),
+  };
+};
 
 export default connect(
   mapStateToProps,

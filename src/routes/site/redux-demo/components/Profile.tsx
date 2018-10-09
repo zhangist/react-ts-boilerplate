@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IProfile, Profile } from "../store/reducer/profile";
+import { IProfile, Profile } from "../store/states/profile";
 
 export interface Props {
   profile: Profile;

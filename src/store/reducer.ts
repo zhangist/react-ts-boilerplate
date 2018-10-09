@@ -1,14 +1,10 @@
-import { LOCATION_CHANGE } from "./actionTypes";
-import { locationChange } from "./actions";
+export interface IReducerState {}
 
-export type ReducerState = string;
+const initialState: IReducerState = {};
 
-export function updateLocation({ dispatch }: any) {
-  return (nextLocation: any) => dispatch(locationChange(nextLocation));
-}
-
-const initialState: ReducerState = "";
+const ACTION_HANDLERS = {};
 
 export default function reducer(state = initialState, action: any) {
-  return action.type === LOCATION_CHANGE ? action.payload : state;
+  const handler = ACTION_HANDLERS[action.type];
+  return handler ? handler(state, action) : state;
 }

@@ -5,6 +5,8 @@ export default function injectReducer(store: Store, { key, reducer }: any) {
   if (!store.asyncReducers) {
     store.asyncReducers = {};
   }
-  store.asyncReducers[key] = reducer;
-  store.replaceReducer(createRootReducer(store.asyncReducers));
+  if (!store.asyncReducers[key]) {
+    store.asyncReducers[key] = reducer;
+    store.replaceReducer(createRootReducer(store.asyncReducers));
+  }
 }
