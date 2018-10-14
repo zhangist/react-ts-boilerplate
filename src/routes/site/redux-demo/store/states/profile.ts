@@ -1,11 +1,11 @@
 import { Map, fromJS } from "immutable";
 
-export interface IProfile {
+export type ProfileType = {
   name: string;
   age: number;
   hobbies: string[];
 }
-export type Profile = Map<keyof IProfile, any>;
+export type Profile = Map<keyof ProfileType, any>;
 
 const profile: Profile = fromJS({
   name: "zard",

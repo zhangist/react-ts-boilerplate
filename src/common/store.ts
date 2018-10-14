@@ -5,7 +5,6 @@ export interface Store extends ReduxStore {
   asyncReducers?: { [key: string]: any };
 }
 
-const initialState = (window as any).__INITIAL_STATE__;
-const store: Store = createStore(initialState);
+const store: Store = createStore();
 
 export default store;

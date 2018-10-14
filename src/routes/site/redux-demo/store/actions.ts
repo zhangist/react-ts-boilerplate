@@ -2,7 +2,7 @@ import { UPDATE_COUNTER } from "./actionTypes";
 
 /**
  * update counter
- * @param value value
+ * @param value number
  */
 export function updateCounter(value = 0) {
   return {

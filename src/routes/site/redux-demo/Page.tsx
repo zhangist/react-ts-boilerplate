@@ -2,7 +2,6 @@ import * as React from "react";
 import { Map } from "immutable";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import store from "../../../common/store";
 import injectReducer from "../../../common/injectReducer";
 import reducer, { InitialState } from "./store/reducer";
 import { Counter } from "./store/states/counter";
@@ -14,7 +13,7 @@ import ProfileComponent from "./components/Profile";
 import * as App from "../../../components/app";
 
 // inject reducer
-injectReducer(store, { key: "site_reduxDemo", reducer });
+injectReducer({ key: "site_reduxDemo", reducer });
 
 export interface StateToProps {
   counter: Counter;

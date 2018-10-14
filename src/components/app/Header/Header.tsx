@@ -7,6 +7,7 @@ const HeaderWrapperStyled = styled.div`
   width: 100%;
   height: 48px;
 `;
+
 const HeaderStyled = styled.div`
   width: 100%;
   height: 48px;
@@ -58,12 +59,14 @@ const NavLinkStyled = styled.span`
 export interface HeaderProps {
   t: TranslationFunction;
 }
+
 export interface HeaderState {
   isMenuListOpen: boolean;
 }
 
 class Header extends React.PureComponent<HeaderProps, HeaderState> {
   private bodyOverflow = document.body.style.overflow;
+
   public constructor(props: HeaderProps) {
     super(props);
     this.state = {
@@ -101,6 +104,9 @@ class Header extends React.PureComponent<HeaderProps, HeaderState> {
     );
   }
 
+  /**
+   * render menu list
+   */
   private renderMenuList = () => {
     const { t } = this.props;
     return (

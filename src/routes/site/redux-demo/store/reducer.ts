@@ -1,18 +1,25 @@
 import { Map, fromJS } from "immutable";
 import { UPDATE_COUNTER } from "./actionTypes";
-import counter from "./states/counter";
-import friends from "./states/friends";
-import hello from "./states/hello";
-import profile from "./states/profile";
+import counter, { CounterType } from "./states/counter";
+import friends, { FriendsType } from "./states/friends";
+import hello, { HelloType } from "./states/hello";
+import profile, { ProfileType } from "./states/profile";
 
-export type InitialState = Map<"counter" | "friends" | "hello" | "profile", any>;
+export type InitialStateType = {
+  counter: CounterType;
+  friends: FriendsType;
+  hello: HelloType;
+  profile: ProfileType;
+};
+export type InitialState = Map<keyof InitialStateType, any>;
 
-export const initialState: InitialState = fromJS({
+const initialState: InitialState = fromJS({
   counter,
   friends,
   hello,
   profile,
 });
+export { initialState };
 
 const ACTION_HANDLERS = {
   [UPDATE_COUNTER]: (state: any, action: any) => state.set("counter", action.payload),

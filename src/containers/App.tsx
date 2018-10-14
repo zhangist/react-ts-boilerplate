@@ -22,7 +22,7 @@ export interface AppProps {
   i18nResources: any;
 }
 
-export default class AppContainer extends React.Component<AppProps, any> {
+export default class App extends React.Component<AppProps, any> {
   constructor(props: AppProps) {
     super(props);
 

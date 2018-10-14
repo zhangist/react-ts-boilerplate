@@ -1,6 +1,10 @@
-export interface IReducerState {}
+import { Map, fromJS } from "immutable";
 
-const initialState: IReducerState = {};
+export type InitialStateType = {};
+export type InitialState = Map<keyof InitialStateType, any>;
+
+const initialState: InitialState = fromJS({});
+export { initialState };
 
 const ACTION_HANDLERS = {};
 
