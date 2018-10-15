@@ -9,18 +9,14 @@ const i18n = i18next.use(LanguageDetector).init({
   },
   fallbackLng: "en",
   debug: true,
-
   // have a common namespace used around the full app
   ns: ["app"],
   defaultNS: "app",
-
   keySeparator: false, // we use content as keys
-
   interpolation: {
     escapeValue: false, // not needed for react!!
     formatSeparator: ",",
   },
-
   react: {
     wait: true,
   },

@@ -11,6 +11,7 @@ export default function injectReducer({ key, reducer }: Params) {
   if (!store.asyncReducers) {
     store.asyncReducers = {};
   }
+
   if (!store.asyncReducers[key]) {
     store.asyncReducers[key] = reducer;
     store.replaceReducer(createRootReducer(store.asyncReducers));

@@ -9,7 +9,7 @@ export default (props: Loadable.LoadingComponentProps) => {
         Error! <button onClick={props.retry}>Retry</button>
       </div>
     );
-  } else {
-    return props.pastDelay ? <Loading /> : null;
   }
+
+  return props.pastDelay ? <Loading /> : null;
 };
