@@ -1,10 +1,10 @@
 import { Map, fromJS } from "immutable";
 
-export type InitialStateType = {};
-export type InitialState = Map<keyof InitialStateType, any>;
+export type InitialState = {};
+export const initialState: InitialState = {};
 
-const initialState: InitialState = fromJS({});
-export { initialState };
+export type $$InitialState = Map<keyof InitialState, any>;
+export const $$initialState: $$InitialState = fromJS(initialState);
 
 const ACTION_HANDLERS = {};
 

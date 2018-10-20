@@ -2,7 +2,7 @@ import * as React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import routes from "../routes";
+import routes from "../modules/routes";
 import store from "../common/store";
 import i18n from "../common/i18n";
 import "../components/globalStyle";
@@ -18,11 +18,12 @@ const RouteWithSubRoutes = (route: any) => (
   />
 );
 
-export interface AppProps {
+export type AppProps = {
   i18nResources: any;
-}
+};
+export type AppState = {};
 
-export default class App extends React.Component<AppProps, any> {
+export default class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
 

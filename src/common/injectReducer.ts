@@ -2,10 +2,10 @@ import { Reducer } from "redux";
 import store from "./store";
 import createRootReducer from "./createRootReducer";
 
-export interface Params {
+export type Params = {
   key: string;
   reducer: Reducer;
-}
+};
 
 export default function injectReducer({ key, reducer }: Params) {
   if (!store.asyncReducers) {

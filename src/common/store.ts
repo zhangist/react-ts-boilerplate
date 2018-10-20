@@ -1,9 +1,9 @@
 import { Store as ReduxStore } from "redux";
 import createStore from "./createStore";
 
-export interface Store extends ReduxStore {
+export type Store = ReduxStore & {
   asyncReducers?: { [key: string]: any };
-}
+};
 
 const store: Store = createStore();
 
