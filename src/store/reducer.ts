@@ -1,14 +1,14 @@
 import { Map, fromJS } from "immutable";
 
-export type InitialState = {};
-export const initialState: InitialState = {};
+export type State = {};
+export const state: State = {};
 
-export type $$InitialState = Map<keyof InitialState, any>;
-export const $$initialState: $$InitialState = fromJS(initialState);
+export type $$State = Map<keyof State, any>;
+export const $$state: $$State = fromJS(state);
 
 const ACTION_HANDLERS = {};
 
-export default function reducer(state = initialState, action: any) {
+export default function reducer($$s = $$state, action: any) {
   const handler = ACTION_HANDLERS[action.type];
-  return handler ? handler(state, action) : state;
+  return handler ? handler($$s, action) : $$s;
 }

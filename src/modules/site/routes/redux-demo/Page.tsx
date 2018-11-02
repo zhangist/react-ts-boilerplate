@@ -3,7 +3,7 @@ import { Map } from "immutable";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import injectReducer from "../../../../common/injectReducer";
-import reducer, { $$InitialState } from "./store/reducer";
+import reducer, { $$State } from "./store/reducer";
 import { Counter } from "./store/states/counter";
 import { $$Friends } from "./store/states/friends";
 import { Hello } from "./store/states/hello";
@@ -72,7 +72,7 @@ class Page extends React.Component<PageProps, PageState> {
   }
 }
 
-const mapStateToProps = (state: Map<"site_reduxDemo", $$InitialState>): StateToProps => {
+const mapStateToProps = (state: Map<"site_reduxDemo", $$State>): StateToProps => {
   const reduxDemo = state.get("site_reduxDemo");
   return {
     $$friends: reduxDemo.get("friends"),
