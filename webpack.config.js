@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const package = require("./package.json");
 
@@ -26,6 +27,11 @@ plugins.push(
   }),
 );
 plugins.push(new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]));
+
+// remove dist dir when build
+if (process.env.BUILD_ENV) {
+  plugins.push(new CleanWebpackPlugin(["dist"]));
+}
 
 // webpack dev server
 if (isDev) {
@@ -54,7 +60,8 @@ const config = {
       {
         test: /\.tsx?$/,
         loaders: ["babel-loader", "awesome-typescript-loader"],
-        exclude: /node_modules/,
+        include: [path.resolve(__dirname, "src")],
+        exclude: [path.resolve(__dirname, "src/i18n")],
       },
     ],
   },
