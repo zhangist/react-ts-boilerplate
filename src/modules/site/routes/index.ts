@@ -1,8 +1,8 @@
-import DefaultLoader from "./DefaultLoader";
-import PagesDemoLoader from "./PagesDemoLoader";
-import ReduxDemoLoader from "./ReduxDemoLoader";
-import UrlParamsDemoLoader from "./UrlParamsDemoLoader";
-import I18nDemoLoader from "./I18nDemoLoader";
+import DefaultLoader from "./default/Loader";
+import PagesDemoLoader from "./pages-demo/Loader";
+import ReduxDemoLoader from "./redux-demo/Loader";
+import UrlParamsDemoLoader from "./url-params-demo/Loader";
+import I18nDemoLoader from "./i18n-demo/Loader";
 
 export default [
   {

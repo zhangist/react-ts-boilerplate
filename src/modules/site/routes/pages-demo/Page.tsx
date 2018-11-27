@@ -2,7 +2,7 @@ import * as React from "react";
 import { Route, Link } from "react-router-dom";
 import * as App from "../../../../components/app";
 import PageA from "./PageA";
-import PageBVeryBigLoader from "../PageBVeryBigLoader";
+import PageBVeryBigLoader from "./PageBVeryBigLoader";
 
 export default class Page extends React.Component {
   public render() {
