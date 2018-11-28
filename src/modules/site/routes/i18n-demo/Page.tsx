@@ -2,10 +2,10 @@ import * as React from "react";
 import i18n from "../../../../common/i18n";
 import * as App from "../../../../components/app";
 
-export type PageProps = {
+export interface PageProps {
   i18nResources: any;
-};
-export type PageState = {};
+}
+export interface PageState {}
 
 export default class Page extends React.Component<PageProps, PageState> {
   constructor(props: PageProps) {

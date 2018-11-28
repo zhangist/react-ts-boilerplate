@@ -1,5 +1,6 @@
 import { injectGlobal } from "./styled";
 
+// tslint:disable-next-line:no-unused-expression
 injectGlobal`
   html {
     font-family: Arial;

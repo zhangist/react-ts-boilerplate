@@ -15,18 +15,18 @@ import * as App from "../../../../components/app";
 // inject reducer
 injectReducer({ key: "site_reduxDemo", reducer });
 
-export type StateToProps = {
+export interface StateToProps {
   $$friends: $$Friends;
   $$profile: $$Profile;
   counter: Counter;
   hello: Hello;
-};
-export type DispatchToProps = {
+}
+export interface DispatchToProps {
   updateCounter: (value: number) => void;
-};
-export type OwnProps = {};
-export type PageProps = StateToProps & DispatchToProps & OwnProps;
-export type PageState = {};
+}
+export interface OwnProps {}
+export interface PageProps extends StateToProps, DispatchToProps, OwnProps {}
+export interface PageState {}
 
 class Page extends React.Component<PageProps, PageState> {
   public render() {

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Profile, $$Profile } from "../store/states/profile";
 
-export type Props = {
+export interface Props {
   $$profile: $$Profile;
-};
+}
 
 export default (props: Props) => {
   return (

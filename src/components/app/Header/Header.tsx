@@ -56,11 +56,11 @@ const NavLinkStyled = styled.span`
   }
 `;
 
-export type HeaderProps = {
+export interface HeaderProps {
   t: TranslationFunction;
 }
 
-export type HeaderState = {
+export interface HeaderState {
   isMenuListOpen: boolean;
 }
 

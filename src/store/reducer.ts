@@ -1,6 +1,6 @@
 import { Map, fromJS } from "immutable";
 
-export type State = {};
+export interface State {}
 export const state: State = {};
 
 export type $$State = Map<keyof State, any>;

@@ -18,10 +18,10 @@ const RouteWithSubRoutes = (route: any) => (
   />
 );
 
-export type AppProps = {
+export interface AppProps {
   i18nResources: any;
-};
-export type AppState = {};
+}
+export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {

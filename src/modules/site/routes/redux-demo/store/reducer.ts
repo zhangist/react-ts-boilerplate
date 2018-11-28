@@ -5,12 +5,12 @@ import { friends, Friends } from "./states/friends";
 import { hello, Hello } from "./states/hello";
 import { profile, Profile } from "./states/profile";
 
-export type State = {
+export interface State {
   counter: Counter;
   friends: Friends;
   hello: Hello;
   profile: Profile;
-};
+}
 export const state: State = {
   counter,
   friends,
@@ -22,7 +22,7 @@ export type $$State = Map<keyof State, any>;
 export const $$state: $$State = fromJS(state);
 
 const ACTION_HANDLERS = {
-  [UPDATE_COUNTER]: ($$state: $$State, action: any) => $$state.set("counter", action.payload),
+  [UPDATE_COUNTER]: ($$s: $$State, action: any) => $$s.set("counter", action.payload),
 };
 
 export default function reducer($$s = $$state, action: any) {

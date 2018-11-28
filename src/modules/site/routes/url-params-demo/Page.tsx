@@ -2,9 +2,9 @@ import * as React from "react";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import * as App from "../../../../components/app";
 
-export type OwnProps = RouteComponentProps<{ param?: string }> & {};
-export type PageProps = OwnProps;
-export type PageState = {};
+export interface OwnProps extends RouteComponentProps<{ param?: string }> {}
+export interface PageProps extends OwnProps {}
+export interface PageState {}
 
 class Page extends React.Component<PageProps, PageState> {
   public render() {
