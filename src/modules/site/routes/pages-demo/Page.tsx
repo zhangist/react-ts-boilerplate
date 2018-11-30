@@ -17,8 +17,8 @@ export default class Page extends React.Component {
             <Link to="/pages-demo/b">Page B</Link>
           </div>
           <div>
-            <Route path="/pages-demo/a" exact component={PageA} />
-            <Route path="/pages-demo/b" exact component={PageBVeryBigLoader} />
+            <Route path="/pages-demo/a" exact={true} component={PageA} />
+            <Route path="/pages-demo/b" exact={true} component={PageBVeryBigLoader} />
           </div>
         </App.Content>
       </div>

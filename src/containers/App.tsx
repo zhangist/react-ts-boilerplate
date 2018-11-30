@@ -10,7 +10,7 @@ import "../components/globalStyle";
 const RouteWithSubRoutes = (route: any) => (
   <Route
     path={route.path}
-    exact
+    exact={true}
     render={props => (
       // pass the sub-routes down to keep nesting
       <route.component {...props} routes={route.routes} />

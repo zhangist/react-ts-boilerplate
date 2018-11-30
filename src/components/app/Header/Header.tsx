@@ -80,7 +80,7 @@ class Header extends React.PureComponent<HeaderProps, HeaderState> {
       <HeaderWrapperStyled>
         <HeaderStyled>
           <NavLinkStyled>
-            <NavLink to="/" exact activeClassName="active">
+            <NavLink to="/" exact={true} activeClassName="active">
               React-ts-boilerplate
             </NavLink>
           </NavLinkStyled>

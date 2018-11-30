@@ -19,8 +19,8 @@ export default class Page extends React.Component {
             </div>
           </App.Content>
           <div>
-            <Route path="/user/profile" exact component={ProfileLoader} />
-            <Route path="/user/settings" exact component={SettingsLoader} />
+            <Route path="/user/profile" exact={true} component={ProfileLoader} />
+            <Route path="/user/settings" exact={true} component={SettingsLoader} />
           </div>
         </div>
       </div>
