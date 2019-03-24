@@ -30,7 +30,7 @@ plugins.push(new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]));
 
 // remove dist dir when build
 if (process.env.BUILD_ENV) {
-  plugins.push(new CleanWebpackPlugin(["dist"]));
+  plugins.push(new CleanWebpackPlugin());
 }
 
 // webpack dev server

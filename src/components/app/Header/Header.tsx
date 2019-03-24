@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { translate, TranslationFunction } from "react-i18next";
+import { withTranslation, WithTranslation } from "react-i18next";
 
 const HeaderWrapperStyled = styled.div`
   width: 100%;
@@ -40,10 +40,10 @@ const MenuListNarrowStyled = styled.span`
 `;
 
 const MenuListWideStyled = styled.span`
-  display: none;
-  @media (min-width: 700px) {
-    display: block;
+  @media (max-width: 700px) {
+    display: none;
   }
+  display: block;
   ${MenuListStyled} {
     flex-direction: row;
   }
@@ -51,15 +51,14 @@ const MenuListWideStyled = styled.span`
 
 const NavLinkStyled = styled.span`
   margin: 0 10px;
-  .active {
-    color: #333;
+  a {
+    &.active {
+      color: #333;
+    }
   }
 `;
 
-export interface HeaderProps {
-  t: TranslationFunction;
-}
-
+export interface HeaderProps extends WithTranslation {}
 export interface HeaderState {
   isMenuListOpen: boolean;
 }
@@ -81,7 +80,7 @@ class Header extends React.PureComponent<HeaderProps, HeaderState> {
         <HeaderStyled>
           <NavLinkStyled>
             <NavLink to="/" exact={true} activeClassName="active">
-              React-ts-boilerplate
+              Home
             </NavLink>
           </NavLinkStyled>
           <MenuListNarrowStyled>
@@ -157,4 +156,4 @@ class Header extends React.PureComponent<HeaderProps, HeaderState> {
   };
 }
 
-export default translate("app")(Header);
+export default withTranslation("app")(Header);

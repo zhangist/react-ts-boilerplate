@@ -1,7 +1,9 @@
-import * as i18next from "i18next";
+import i18next from "i18next";
 import * as LanguageDetector from "i18next-browser-languagedetector";
 
-const i18n = i18next.use(LanguageDetector).init({
+const i18n = i18next.use(LanguageDetector);
+i18n.init({
+  detection: { lookupCookie: "lng" },
   // we init with resources
   resources: {
     en: {},
