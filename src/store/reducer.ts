@@ -1,9 +1,15 @@
+import { ActionTypes, RESET_STATE, UPDATE_STATE } from "./actionTypes";
+
 export interface State {}
-export const state: State = {};
+export const initialState: State = {};
 
-const ACTION_HANDLERS = {};
-
-export default function reducer(s = state, action: any) {
-  const handler = ACTION_HANDLERS[action.type];
-  return handler ? handler(s, action) : s;
+export function reducer(state = initialState, action: ActionTypes): State {
+  switch (action.type) {
+    case RESET_STATE:
+      return action.payload || initialState;
+    case UPDATE_STATE:
+      return Object.assign({}, state, { ...action.payload });
+    default:
+      return state;
+  }
 }

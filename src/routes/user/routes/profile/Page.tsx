@@ -1,13 +1,12 @@
 import * as React from "react";
-import * as App from "../../../../components/app";
 
 export default class Page extends React.Component {
   public render() {
     return (
-      <App.Content>
-        <App.PageTitle>User Profile</App.PageTitle>
-        <div>User profile content.</div>
-      </App.Content>
+      <div>
+        <div style={{ padding: "10px 8px" }}>User Profile Title</div>
+        <div style={{ padding: "10px 8px" }}>User profile content.</div>
+      </div>
     );
   }
 }

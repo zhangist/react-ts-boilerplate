@@ -1,4 +1,11 @@
-import { ResetStateAction, RESET_STATE, UpdateStateAction, UPDATE_STATE } from "./actionTypes";
+import {
+  ResetStateAction,
+  RESET_STATE,
+  UpdateStateAction,
+  UPDATE_STATE,
+  UpdateCounterAction,
+  UPDATE_COUNTER,
+} from "./actionTypes";
 import { State } from "./reducer";
 
 /**
@@ -20,5 +27,16 @@ export function updateRedirectUrl(state: Partial<State>): UpdateStateAction {
   return {
     type: UPDATE_STATE,
     payload: state,
+  };
+}
+
+/**
+ * update counter
+ * @param value number
+ */
+export function updateCounter(value: number): UpdateCounterAction {
+  return {
+    type: UPDATE_COUNTER,
+    payload: value,
   };
 }
