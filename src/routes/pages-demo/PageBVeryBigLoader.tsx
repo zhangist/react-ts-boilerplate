@@ -1,7 +1,7 @@
 import * as React from "react";
-import LazyLoading from "../../../../components/LazyLoading";
+import LazyLoading from "../../components/LazyLoading";
 
-const Component = React.lazy(() => import("./Page"));
+const Component = React.lazy(() => import("./PageBVeryBig"));
 
 export default class Loader extends React.Component {
   public render() {
