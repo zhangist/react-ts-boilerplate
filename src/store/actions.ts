@@ -16,7 +16,7 @@ export function resetState(state?: State): ResetStateAction {
  * update state
  * @param state Partial<State>
  */
-export function updateRedirectUrl(state: Partial<State>): UpdateStateAction {
+export function updateState(state: Partial<State>): UpdateStateAction {
   return {
     type: UPDATE_STATE,
     payload: state,

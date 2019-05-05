@@ -2,8 +2,9 @@ import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import store from "./common/store";
-import i18n from "./common/i18n";
+import { I18nService } from "./services/i18n";
+import { StoreService } from "./services/store";
+import { reducer, REDUCER_KEY } from "./store/reducer";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
@@ -14,14 +15,16 @@ import ReduxDemoLoader from "./routes/redux-demo/Loader";
 import UrlParamsDemoLoader from "./routes/url-params-demo/Loader";
 import UserLoader from "./routes/user/Loader";
 
+StoreService.injectReducer(REDUCER_KEY, reducer);
+
 export interface AppProps {}
 export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
   public render() {
     return (
-      <I18nextProvider i18n={i18n}>
-        <Provider store={store}>
+      <I18nextProvider i18n={I18nService.i18n}>
+        <Provider store={StoreService.store}>
           <BrowserRouter>
             <div className="app">
               <Header />

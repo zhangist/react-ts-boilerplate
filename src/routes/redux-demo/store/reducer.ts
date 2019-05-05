@@ -4,6 +4,8 @@ import { friends, Friends } from "./states/friends";
 import { hello, Hello } from "./states/hello";
 import { profile, Profile } from "./states/profile";
 
+export const REDUCER_KEY = "site_reduxDemo";
+
 export interface State {
   counter: Counter;
   friends: Friends;

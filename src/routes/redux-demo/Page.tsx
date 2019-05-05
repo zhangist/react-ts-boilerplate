@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import injectReducer from "../../common/injectReducer";
-import { reducer, State } from "./store/reducer";
+import { StoreService } from "../../services/store";
+import { reducer, State, REDUCER_KEY } from "./store/reducer";
 import { Counter } from "./store/states/counter";
 import { Friends } from "./store/states/friends";
 import { Hello } from "./store/states/hello";
@@ -10,8 +10,7 @@ import { Profile } from "./store/states/profile";
 import { updateCounter } from "./store/actions";
 import ProfileComponent from "./components/Profile";
 
-// inject reducer
-injectReducer({ key: "site_reduxDemo", reducer });
+StoreService.injectReducer(REDUCER_KEY, reducer);
 
 export interface StateToProps {
   friends: Friends;
@@ -25,13 +24,13 @@ export interface DispatchToProps {
 export interface PageProps extends StateToProps, DispatchToProps {}
 export interface PageState {}
 
-const mapStateToProps = (state: { site_reduxDemo: State }): StateToProps => {
-  const reduxDemo = state.site_reduxDemo;
+const mapStateToProps = (state: { [REDUCER_KEY]: State }): StateToProps => {
+  const stateReduxDemo = state[REDUCER_KEY];
   return {
-    friends: reduxDemo.friends,
-    profile: reduxDemo.profile,
-    counter: reduxDemo.counter,
-    hello: reduxDemo.hello,
+    friends: stateReduxDemo.friends,
+    profile: stateReduxDemo.profile,
+    counter: stateReduxDemo.counter,
+    hello: stateReduxDemo.hello,
   };
 };
 const mapDispatchToProps = (dispatch: Dispatch): DispatchToProps => {
