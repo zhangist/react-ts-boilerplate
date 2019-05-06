@@ -17,7 +17,7 @@ class Page extends React.Component<PageProps, PageState> {
     if (!I18nService.hasResourceBundle("i18nDemo")) {
       try {
         console.log("load i18n");
-        await I18nService.addResources("i18n-demo", "i18nDemo");
+        await I18nService.addResourceBundle("i18n-demo", "i18nDemo");
       } catch (error) {
       } finally {
         this.forceUpdate();

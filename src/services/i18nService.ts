@@ -18,18 +18,18 @@ export class I18nService {
   public static i18n = i18n;
 
   /**
-   * load resources
+   * add resource bundle
    * @param path string
    * @param ns string
    */
-  public static addResources(path: string, ns: string) {
+  public static addResourceBundle(path: string, ns: string) {
     return new Promise<any>(async (resolve, reject) => {
       try {
         const all = await Promise.all([
           import("../components/Empty"),
           fetch("/i18n/" + path + "/" + this.i18n.language.toLowerCase() + ".json").then(res => res.json()),
         ]);
-        this.i18n.addResources(this.i18n.language, ns, all[1]);
+        this.i18n.addResourceBundle(this.i18n.language, ns, all[1]);
         resolve(all[0]);
       } catch (error) {
         reject(error);

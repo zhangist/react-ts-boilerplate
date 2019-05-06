@@ -25,7 +25,7 @@ class Page extends React.Component<PageProps, PageState> {
   public async componentDidMount() {
     if (!I18nService.hasResourceBundle("app")) {
       try {
-        await I18nService.addResources("app", "app");
+        await I18nService.addResourceBundle("app", "app");
       } catch (error) {
       } finally {
         this.forceUpdate();
