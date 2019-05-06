@@ -1,12 +1,12 @@
 import * as React from "react";
-import LazyLoading from "../../components/LazyLoading";
+import Loading from "../../components/Loading";
 
 const Component = React.lazy(() => import("./Page"));
 
 export default class Loader extends React.Component {
   public render() {
     return (
-      <React.Suspense fallback={<LazyLoading />}>
+      <React.Suspense fallback={<Loading text="Loading page..." />}>
         <Component />
       </React.Suspense>
     );

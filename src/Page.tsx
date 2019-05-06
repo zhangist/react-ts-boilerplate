@@ -2,8 +2,8 @@ import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import { I18nService } from "./services/i18n";
-import { StoreService } from "./services/store";
+import { I18nService } from "./services/i18nService";
+import { StoreService } from "./services/storeService";
 import { reducer, REDUCER_KEY } from "./store/reducer";
 import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
@@ -14,14 +14,30 @@ import PagesDemoLoader from "./routes/pages-demo/Loader";
 import ReduxDemoLoader from "./routes/redux-demo/Loader";
 import UrlParamsDemoLoader from "./routes/url-params-demo/Loader";
 import UserLoader from "./routes/user/Loader";
+import Loading from "./components/Loading";
 
 StoreService.injectReducer(REDUCER_KEY, reducer);
 
-export interface AppProps {}
-export interface AppState {}
+export interface PageProps {}
+export interface PageState {}
 
-export default class App extends React.Component<AppProps, AppState> {
+class Page extends React.Component<PageProps, PageState> {
+  public async componentDidMount() {
+    if (!I18nService.hasResourceBundle("app")) {
+      try {
+        await I18nService.addResources("app", "app");
+      } catch (error) {
+      } finally {
+        this.forceUpdate();
+      }
+    }
+  }
+
   public render() {
+    if (!I18nService.hasResourceBundle("app")) {
+      return <Loading text="Loading i18n..." />;
+    }
+
     return (
       <I18nextProvider i18n={I18nService.i18n}>
         <Provider store={StoreService.store}>
@@ -45,3 +61,5 @@ export default class App extends React.Component<AppProps, AppState> {
     );
   }
 }
+
+export default Page;

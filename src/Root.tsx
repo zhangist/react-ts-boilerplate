@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import Loader from "./Loader";
 
 let App = Loader;
-const MOUNT_NODE: any = document.getElementById("root");
+const MOUNT_NODE: Element | null = document.getElementById("root");
 const render = () => {
   ReactDOM.render(<App />, MOUNT_NODE);
 };
@@ -13,7 +13,9 @@ if ((module as any).hot) {
     const NextLoader = require("./Loader").default;
     App = NextLoader;
     setImmediate(() => {
-      ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+      if (MOUNT_NODE) {
+        ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+      }
       render();
     });
   });

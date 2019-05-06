@@ -12,6 +12,7 @@
     "object-literal-key-quotes": false,
     "object-literal-sort-keys": false,
     "semicolon": [true, "always", "strict-bound-class-methods"],
+    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
     "jsx-no-lambda": false
   },
   "rulesDirectory": []

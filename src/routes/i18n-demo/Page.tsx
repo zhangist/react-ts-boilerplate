@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as Cookies from "js-cookie";
 import { withTranslation, WithTranslation } from "react-i18next";
+import { I18nService } from "../../services/i18nService";
+import Loading from "../../components/Loading";
 
 enum LanguageTypes {
   en = "en",
@@ -11,8 +13,25 @@ export interface PageProps extends WithTranslation {}
 export interface PageState {}
 
 class Page extends React.Component<PageProps, PageState> {
+  public async componentDidMount() {
+    if (!I18nService.hasResourceBundle("i18nDemo")) {
+      try {
+        console.log("load i18n");
+        await I18nService.addResources("i18n-demo", "i18nDemo");
+      } catch (error) {
+      } finally {
+        this.forceUpdate();
+      }
+    }
+  }
+
   public render() {
     const { t } = this.props;
+
+    if (!I18nService.hasResourceBundle("i18nDemo")) {
+      return <Loading text="loading i18n ..." />;
+    }
+
     return (
       <div>
         <div style={{ padding: "10px 8px" }}>I18n Demo</div>

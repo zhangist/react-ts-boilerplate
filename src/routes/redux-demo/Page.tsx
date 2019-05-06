@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { StoreService } from "../../services/store";
+import { StoreService } from "../../services/storeService";
 import { reducer, State, REDUCER_KEY } from "./store/reducer";
 import { Counter } from "./store/states/counter";
 import { Friends } from "./store/states/friends";

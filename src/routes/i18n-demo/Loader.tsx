@@ -1,15 +1,12 @@
 import * as React from "react";
-import { I18nService } from "../../services/i18n";
-import LazyLoading from "../../components/LazyLoading";
+import Loading from "../../components/Loading";
 
-const I18nResource = React.lazy(() => I18nService.importI18nResources("i18n-demo", "i18nDemo"));
 const Component = React.lazy(() => import("./Page"));
 
 export default class Loader extends React.Component {
   public render() {
     return (
-      <React.Suspense fallback={<LazyLoading />}>
-        <I18nResource />
+      <React.Suspense fallback={<Loading text="Loading page..." />}>
         <Component />
       </React.Suspense>
     );

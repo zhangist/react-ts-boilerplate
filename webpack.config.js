@@ -12,7 +12,7 @@ const isDev = process.env.NODE_ENV === "development" ? true : false;
 const entry = {};
 const plugins = [];
 
-entry.main = ["./src/index.tsx"];
+entry.main = ["./src/Root.tsx"];
 plugins.push(
   new webpack.DefinePlugin({
     VERSION: JSON.stringify(package.version),
