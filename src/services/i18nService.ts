@@ -12,11 +12,16 @@ i18n.init({
   resources: {},
 });
 
+/**
+ * i18n service
+ */
 export class I18nService {
   /**
-   * i18n
+   * get i18n
    */
-  public static i18n = i18n;
+  public static getI18n() {
+    return this.i18n;
+  }
 
   /**
    * add resource bundle
@@ -47,4 +52,7 @@ export class I18nService {
   public static hasResourceBundle(namespace: string): boolean {
     return this.i18n.hasResourceBundle(this.i18n.language, namespace);
   }
+
+  private static i18n = i18n;
+  private constructor() {}
 }

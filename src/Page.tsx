@@ -19,6 +19,10 @@ import ReduxDemoLoader from "./routes/redux-demo/Loader";
 import UrlParamsDemoLoader from "./routes/url-params-demo/Loader";
 import UserLoader from "./routes/user/Loader";
 
+const history = HistoryService.getHistory();
+const i18n = I18nService.getI18n();
+const store = StoreService.getStore();
+
 StoreService.injectReducer(ReducerKeys.App, reducer);
 
 export interface PageProps {}
@@ -42,9 +46,9 @@ class Page extends React.Component<PageProps, PageState> {
     }
 
     return (
-      <I18nextProvider i18n={I18nService.i18n}>
-        <Provider store={StoreService.store}>
-          <Router history={HistoryService.history}>
+      <I18nextProvider i18n={i18n}>
+        <Provider store={store}>
+          <Router history={history}>
             <div className="app">
               <Header />
               <Switch>

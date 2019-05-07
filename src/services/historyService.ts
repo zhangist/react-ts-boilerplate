@@ -2,9 +2,17 @@ import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 
+/**
+ * history service
+ */
 export class HistoryService {
   /**
-   * history
+   * get history
    */
-  public static history = history;
+  public static getHistory() {
+    return this.history;
+  }
+
+  private static history = history;
+  private constructor() {}
 }

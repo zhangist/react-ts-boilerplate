@@ -1,5 +1,8 @@
 import { ApiResponse } from "../interfaces/fetchResponse";
 
+/**
+ * fetch service
+ */
 export class FetchService {
   /**
    * fetch
@@ -66,4 +69,6 @@ export class FetchService {
       );
     }
   }
+
+  private constructor() {}
 }

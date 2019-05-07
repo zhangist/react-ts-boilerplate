@@ -1,14 +1,25 @@
-import { Reducer, createStore, compose, applyMiddleware, combineReducers } from "redux";
+import {
+  Reducer,
+  createStore,
+  compose,
+  applyMiddleware,
+  combineReducers,
+} from "redux";
 import thunk from "redux-thunk";
 
 const store = createStore(() => ({}), {}, compose(applyMiddleware(thunk)));
 const reducers = {};
 
+/**
+ * store service
+ */
 export class StoreService {
   /**
-   * store
+   * get store
    */
-  public static store = store;
+  public static getStore() {
+    return this.store;
+  }
 
   /**
    * inject reducer
@@ -31,6 +42,7 @@ export class StoreService {
     }
   }
 
+  private static store = store;
   private static reducers = reducers;
   private constructor() {}
 }
