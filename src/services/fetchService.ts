@@ -39,13 +39,16 @@ export class FetchService {
    * @param input RequestInfo
    * @param init RequestInit | undefined
    */
-  public static async fetchText(input: RequestInfo, init?: RequestInit) {
+  public static async fetchText(
+    input: RequestInfo,
+    init?: RequestInit,
+  ): Promise<string> {
     try {
       const res = await this.fetch(input, init);
       const text = await res.text();
-      return new Promise(resolve => resolve(text));
+      return new Promise<string>(resolve => resolve(text));
     } catch (error) {
-      return new Promise((resolve, reject) => reject(error));
+      return new Promise<string>((resolve, reject) => reject(error));
     }
   }
 
@@ -54,7 +57,10 @@ export class FetchService {
    * @param input RequestInfo
    * @param init RequestInit | undefined
    */
-  public static async fetchApi<T>(input: RequestInfo, init?: RequestInit) {
+  public static async fetchApi<T>(
+    input: RequestInfo,
+    init?: RequestInit,
+  ): Promise<T> {
     try {
       const res = await this.fetch(input, init);
       const json: ApiResponse<T> = await res.json();
