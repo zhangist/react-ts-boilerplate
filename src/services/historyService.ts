@@ -7,7 +7,7 @@ export class HistoryService {
   /**
    * get history
    */
-  public static getHistory() {
+  public static getHistory(): History<any> {
     if (!this.history) {
       this.history = createBrowserHistory();
     }

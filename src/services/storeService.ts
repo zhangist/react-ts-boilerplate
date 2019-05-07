@@ -1,7 +1,7 @@
 import {
-  Reducer,
   Store,
   Action,
+  Reducer,
   createStore,
   compose,
   applyMiddleware,
