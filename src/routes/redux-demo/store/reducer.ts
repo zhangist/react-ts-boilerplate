@@ -1,15 +1,15 @@
-import { RESET_STATE, UPDATE_STATE, UPDATE_COUNTER, ActionTypes } from "./actionTypes";
-import { counter, Counter } from "./states/counter";
-import { friends, Friends } from "./states/friends";
-import { hello, Hello } from "./states/hello";
-import { profile, Profile } from "./states/profile";
-
-export const REDUCER_KEY = "site_reduxDemo";
+import { ActionTypes } from "../../../enum/actionTypes";
+import { Profile } from "../interfaces/profile";
+import { Actions } from "./actions";
+import { counter } from "./states/counter";
+import { friends } from "./states/friends";
+import { hello } from "./states/hello";
+import { profile } from "./states/profile";
 
 export interface State {
-  counter: Counter;
-  friends: Friends;
-  hello: Hello;
+  counter: number;
+  hello: string;
+  friends: string[];
   profile: Profile;
 }
 export const initialState: State = {
@@ -19,15 +19,19 @@ export const initialState: State = {
   profile,
 };
 
-export function reducer(state = initialState, action: ActionTypes): State {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-    case RESET_STATE:
+    case ActionTypes.ReduxDemo_ResetState: {
       return action.payload || initialState;
-    case UPDATE_STATE:
+    }
+    case ActionTypes.ReduxDemo_UpdateState: {
       return Object.assign({}, state, { ...action.payload });
-    case UPDATE_COUNTER:
+    }
+    case ActionTypes.ReduxDemo_UpdateCounter: {
       return Object.assign({}, state, { counter: action.payload });
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }

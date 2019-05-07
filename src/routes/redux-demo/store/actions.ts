@@ -1,12 +1,25 @@
-import {
-  ResetStateAction,
-  RESET_STATE,
-  UpdateStateAction,
-  UPDATE_STATE,
-  UpdateCounterAction,
-  UPDATE_COUNTER,
-} from "./actionTypes";
+import { ActionTypes } from "../../../enum/actionTypes";
 import { State } from "./reducer";
+
+export interface ResetStateAction {
+  type: ActionTypes.ReduxDemo_ResetState;
+  payload?: State;
+}
+
+export interface UpdateStateAction {
+  type: ActionTypes.ReduxDemo_UpdateState;
+  payload: Partial<State>;
+}
+
+export interface UpdateCounterAction {
+  type: ActionTypes.ReduxDemo_UpdateCounter;
+  payload: number;
+}
+
+export type Actions =
+  | ResetStateAction
+  | UpdateStateAction
+  | UpdateCounterAction;
 
 /**
  * reset state
@@ -14,7 +27,7 @@ import { State } from "./reducer";
  */
 export function resetState(state?: State): ResetStateAction {
   return {
-    type: RESET_STATE,
+    type: ActionTypes.ReduxDemo_ResetState,
     payload: state,
   };
 }
@@ -25,7 +38,7 @@ export function resetState(state?: State): ResetStateAction {
  */
 export function updateRedirectUrl(state: Partial<State>): UpdateStateAction {
   return {
-    type: UPDATE_STATE,
+    type: ActionTypes.ReduxDemo_UpdateState,
     payload: state,
   };
 }
@@ -36,7 +49,7 @@ export function updateRedirectUrl(state: Partial<State>): UpdateStateAction {
  */
 export function updateCounter(value: number): UpdateCounterAction {
   return {
-    type: UPDATE_COUNTER,
+    type: ActionTypes.ReduxDemo_UpdateCounter,
     payload: value,
   };
 }

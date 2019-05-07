@@ -1,11 +1,14 @@
 import * as React from "react";
-import { Profile } from "../store/states/profile";
+import { Profile } from "../interfaces/profile";
 
 export interface ProfileComponentProps {
   profile: Profile;
 }
 
-export default class ProfileComponent extends React.PureComponent<ProfileComponentProps, {}> {
+export default class ProfileComponent extends React.PureComponent<
+  ProfileComponentProps,
+  {}
+> {
   public render() {
     const { profile } = this.props;
     return (

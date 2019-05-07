@@ -1,5 +1,6 @@
 import i18next from "i18next";
 import * as LanguageDetector from "i18next-browser-languagedetector";
+import { FetchService } from "./fetchService";
 
 const i18n = i18next.use(LanguageDetector);
 i18n.init({
@@ -19,29 +20,31 @@ export class I18nService {
 
   /**
    * add resource bundle
+   * @param namespace string
    * @param path string
-   * @param ns string
    */
-  public static addResourceBundle(path: string, ns: string) {
-    return new Promise<any>(async (resolve, reject) => {
+  public static addResourceBundle(
+    namespace: string,
+    path?: string,
+  ): Promise<void> {
+    return new Promise<void>(async (resolve, reject) => {
       try {
-        const all = await Promise.all([
-          import("../components/Empty"),
-          fetch("/i18n/" + path + "/" + this.i18n.language.toLowerCase() + ".json").then(res => res.json()),
-        ]);
-        this.i18n.addResourceBundle(this.i18n.language, ns, all[1]);
-        resolve(all[0]);
+        const resources = await FetchService.fetchJson(
+          `/i18n/${path || namespace}/${this.i18n.language.toLowerCase()}.json`,
+        );
+        this.i18n.addResourceBundle(this.i18n.language, namespace, resources);
+        return resolve();
       } catch (error) {
-        reject(error);
+        return reject(error);
       }
     });
   }
 
   /**
    * has resource bundle
-   * @param key string
+   * @param namespace string
    */
-  public static hasResourceBundle(ns: string) {
-    return this.i18n.hasResourceBundle(this.i18n.language, ns);
+  public static hasResourceBundle(namespace: string): boolean {
+    return this.i18n.hasResourceBundle(this.i18n.language, namespace);
   }
 }

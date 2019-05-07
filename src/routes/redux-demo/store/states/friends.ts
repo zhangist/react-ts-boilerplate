@@ -1,2 +1,1 @@
-export type Friends = string[];
-export const friends: Friends = ["Lily", "Jack"];
+export const friends: string[] = ["Lily", "Jack"];

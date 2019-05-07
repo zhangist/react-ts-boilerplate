@@ -1,2 +1,1 @@
-export type Counter = number;
-export const counter: Counter = 0;
+export const counter: number = 0;

@@ -15,7 +15,11 @@ export default class Page extends React.Component {
         </div>
         <div style={{ padding: "10px 8px" }}>
           <Route path="/pages-demo/a" exact={true} component={PageA} />
-          <Route path="/pages-demo/b" exact={true} component={PageBVeryBigLoader} />
+          <Route
+            path="/pages-demo/b"
+            exact={true}
+            component={PageBVeryBigLoader}
+          />
         </div>
       </div>
     );

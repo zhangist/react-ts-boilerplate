@@ -1,22 +1,20 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
+import { ReducerKeys } from "../../enum/reducerKeys";
 import { StoreService } from "../../services/storeService";
-import { reducer, State, REDUCER_KEY } from "./store/reducer";
-import { Counter } from "./store/states/counter";
-import { Friends } from "./store/states/friends";
-import { Hello } from "./store/states/hello";
-import { Profile } from "./store/states/profile";
+import { Profile } from "./interfaces/profile";
+import { reducer, State } from "./store/reducer";
 import { updateCounter } from "./store/actions";
 import ProfileComponent from "./components/Profile";
 
-StoreService.injectReducer(REDUCER_KEY, reducer);
+StoreService.injectReducer(ReducerKeys.ReduxDemo, reducer);
 
 export interface StateToProps {
-  friends: Friends;
+  counter: number;
+  hello: string;
+  friends: string[];
   profile: Profile;
-  counter: Counter;
-  hello: Hello;
 }
 export interface DispatchToProps {
   updateCounter: (value: number) => void;
@@ -24,8 +22,10 @@ export interface DispatchToProps {
 export interface PageProps extends StateToProps, DispatchToProps {}
 export interface PageState {}
 
-const mapStateToProps = (state: { [REDUCER_KEY]: State }): StateToProps => {
-  const stateReduxDemo = state[REDUCER_KEY];
+const mapStateToProps = (state: {
+  [ReducerKeys.ReduxDemo]: State;
+}): StateToProps => {
+  const stateReduxDemo = state[ReducerKeys.ReduxDemo];
   return {
     friends: stateReduxDemo.friends,
     profile: stateReduxDemo.profile,
@@ -50,7 +50,11 @@ class Page extends React.Component<PageProps, PageState> {
             <div>
               {this.props.counter}
               &nbsp;
-              <button onClick={() => this.props.updateCounter(this.props.counter + 1)}>Add</button>
+              <button
+                onClick={() => this.props.updateCounter(this.props.counter + 1)}
+              >
+                Add
+              </button>
             </div>
           </section>
           <section>

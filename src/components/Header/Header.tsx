@@ -1,7 +1,8 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 import { withTranslation, WithTranslation } from "react-i18next";
+import styled from "styled-components";
+import { I18nNamespaces } from "../../enum/i18nNamespaces";
 
 const HeaderWrapperStyled = styled.div`
   width: 100%;
@@ -157,4 +158,4 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 }
 
-export default withTranslation("app")(Header);
+export default withTranslation(I18nNamespaces.App)(Header);
