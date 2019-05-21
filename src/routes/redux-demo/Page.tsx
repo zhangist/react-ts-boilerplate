@@ -1,12 +1,16 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
+import { Switch, Route } from "react-router";
 import { ReducerKeys } from "../../enum/reducerKeys";
 import { StoreService } from "../../services/storeService";
 import { Profile } from "./interfaces/profile";
 import { reducer, State } from "./store/reducer";
 import { updateCounter } from "./store/actions";
 import ProfileComponent from "./components/Profile";
+import PageA from "./PageA";
+import PageB from "./PageB";
+import { Link } from "react-router-dom";
 
 StoreService.injectReducer(ReducerKeys.ReduxDemo, reducer);
 
@@ -78,6 +82,17 @@ class Page extends React.Component<PageProps, PageState> {
             <h4>Profile:</h4>
             <ProfileComponent profile={this.props.profile} />
           </section>
+        </div>
+        <div style={{ padding: "10px 8px" }}>
+          <Link to="/redux-demo/page-a">page-a</Link>
+          <span> / </span>
+          <Link to="/redux-demo/page-b">page-b</Link>
+        </div>
+        <div style={{ padding: "10px 8px" }}>
+          <Switch>
+            <Route path="/redux-demo/page-a" component={PageA} />
+            <Route path="/redux-demo/page-b" component={PageB} />
+          </Switch>
         </div>
       </div>
     );
