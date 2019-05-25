@@ -1,22 +1,26 @@
 .code {
+  padding: 10px;
   border-radius: 3px;
 }
 
 .theme() {
   .code {
+    color: @code_color;
     background: @code_background;
   }
 }
 
 :global(html),
 :global(html.theme-white) {
-  @code_background: #eee;
+  @code_color: #333333;
+  @code_background: #eeeeee;
 
   .theme();
 }
 
 :global(html.theme-black) {
-  @code_background: #333;
+  @code_color: #ffffff;
+  @code_background: #222222;
 
   .theme();
 }

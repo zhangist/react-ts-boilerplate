@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
+import NotFound from "../../components/NotFound";
 import styles from "./styles.less";
 import DefaultLoader from "./routes/default/Loader";
 import ProfileLoader from "./routes/profile/Loader";
@@ -43,7 +44,7 @@ export default class Page extends React.Component {
               exact={true}
               component={SettingsLoader}
             />
-            <Route path="/user/:any" component={() => <div>Not Found.</div>} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>

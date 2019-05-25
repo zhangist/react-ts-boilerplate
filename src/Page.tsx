@@ -14,6 +14,7 @@ import Loading from "./components/Loading";
 import NotFound from "./components/NotFound";
 import DefaultLoader from "./routes/default/Loader";
 import I18nDemoLoader from "./routes/i18n-demo/Loader";
+import ThemeDemoLoader from "./routes/theme-demo/Loader";
 import PagesDemoLoader from "./routes/pages-demo/Loader";
 import ReduxDemoLoader from "./routes/redux-demo/Loader";
 import UrlParamsDemoLoader from "./routes/url-params-demo/Loader";
@@ -57,6 +58,7 @@ class Page extends React.Component<PageProps, PageState> {
                 <Switch>
                   <Route path="/" exact={true} component={DefaultLoader} />
                   <Route path="/i18n-demo" component={I18nDemoLoader} />
+                  <Route path="/theme-demo" component={ThemeDemoLoader} />
                   <Route path="/pages-demo" component={PagesDemoLoader} />
                   <Route path="/redux-demo" component={ReduxDemoLoader} />
                   <Route

@@ -9,24 +9,30 @@ export default class Page extends React.Component {
         <div style={{ padding: "10px 8px" }}>
           <pre className={styles.code}>{`
 |-- src
-   |-+ @types
-   |-+ components
-   |-+ containers
-   |-+ enum
-   |-+ interfaces
-   |-+ routes
-   |-+ services
-   |-+ utils
-   |-+ store
-   |-- favicon.ico
-   |-- global.less
-   |-- index.html
-   |-- Loader.tsx
-   |-- Page.tsx
-   |-- Root.tsx
+  |-+ @types
+  |-+ components
+  |-+ containers
+  |-+ enum
+  |-+ interfaces
+  |-+ routes
+  |-+ services
+  |-+ utils
+  |-+ store
+  |-- favicon.ico
+  |-- global.less
+  |-- index.html
+  |-- Loader.tsx
+  |-- Page.tsx
+  |-- Root.tsx
           `}</pre>
         </div>
-
+        <div style={{ padding: "10px 8px" }}>
+          <ul>
+            <li>data store</li>
+            <li>i18n support</li>
+            <li>multiple themes </li>
+          </ul>
+        </div>
         <div style={{ padding: "10px 8px" }}>
           <ul>
             <li>redux</li>

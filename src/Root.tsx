@@ -3,8 +3,6 @@ import * as ReactDOM from "react-dom";
 import "./global.less";
 import Loader from "./Loader";
 
-localStorage.setItem("theme", "white");
-
 // theme
 const themes = ["white", "black"];
 const theme = localStorage.getItem("theme");

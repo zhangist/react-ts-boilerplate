@@ -27,13 +27,13 @@
     bottom: 0px;
     left: 0px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     display: block;
   }
 }
 
 .wide {
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     display: none;
   }
   display: block;
@@ -66,19 +66,19 @@ a.navLink {
 
 :global(html),
 :global(html.theme-white) {
-  @header_background: #fff;
-  @menuList_background: #fff;
-  @navLink_active_color: #333;
+  @header_background: #ffffff;
+  @menuList_background: #ffffff;
+  @navLink_active_color: #333333;
   @navLink_active_background: #f5f5f5;
 
   .theme();
 }
 
 :global(html.theme-black) {
-  @header_background: #333;
-  @menuList_background: #333;
-  @navLink_active_color: #fff;
-  @navLink_active_background: #f5f5f5;
+  @header_background: #222222;
+  @menuList_background: #222222;
+  @navLink_active_color: #ffffff;
+  @navLink_active_background: #333333;
 
   .theme();
 }

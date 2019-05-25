@@ -68,6 +68,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           {t("I18n Demo")}
         </NavLink>
         <NavLink
+          to="/theme-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Theme Demo")}
+        </NavLink>
+        <NavLink
           to="/pages-demo"
           className={styles.navLink}
           activeClassName={styles.active}

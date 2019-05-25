@@ -32,18 +32,18 @@ class Page extends React.Component<PageProps, PageState> {
     const { t } = this.props;
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>I18n Demo</div>
+        <div style={{ padding: "10px 8px" }}>Default</div>
         <div style={{ padding: "10px 8px" }}>{t("Hello!")}</div>
         <div style={{ padding: "10px 8px" }}>
           <a
-            href="javascript:void;"
+            href="javascript:void(0);"
             onClick={() => this.changeLanguage(LanguageTypes.en)}
           >
             en
           </a>
           <span> / </span>
           <a
-            href="javascript:void;"
+            href="javascript:void(0);"
             onClick={() => this.changeLanguage(LanguageTypes.zh_cn)}
           >
             zh-cn

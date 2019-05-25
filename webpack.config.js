@@ -57,6 +57,7 @@ const config = {
           },
           "less-loader",
         ],
+        exclude: [path.resolve(__dirname, "node_modules")],
       },
     ],
   },
