@@ -17,7 +17,8 @@ const config = {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    filename: "[name]-[hash].js",
+    filename:
+      process.env.NODE_ENV === "production" ? "[name]-[hash].js" : "[name].js",
     chunkFilename:
       process.env.NODE_ENV === "production"
         ? "[name]-[chunkhash].js"

@@ -1,6 +1,6 @@
 import i18next from "i18next";
 import * as LanguageDetector from "i18next-browser-languagedetector";
-import { FetchService } from "./fetchService";
+import axios from "axios";
 import { I18nNamespaces } from "../enum/i18nNamespaces";
 
 /**
@@ -15,7 +15,6 @@ export class I18nService {
       this.i18n = i18next.use(LanguageDetector);
       this.i18n.init({
         debug: process.env.NODE_ENV === "development",
-        detection: { lookupCookie: "lng" },
         fallbackLng: "en",
         ns: ["app"],
         defaultNS: "app",
@@ -36,10 +35,14 @@ export class I18nService {
   ): Promise<void> {
     return new Promise<void>(async (resolve, reject) => {
       try {
-        const resources = await FetchService.fetchJson(
+        const response = await axios.get(
           `/i18n/${path || namespace}/${this.i18n.language.toLowerCase()}.json`,
         );
-        this.i18n.addResourceBundle(this.i18n.language, namespace, resources);
+        this.i18n.addResourceBundle(
+          this.i18n.language,
+          namespace,
+          response.data,
+        );
         return resolve();
       } catch (error) {
         return reject(error);

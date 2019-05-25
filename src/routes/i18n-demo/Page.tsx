@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as Cookies from "js-cookie";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { I18nNamespaces } from "../../enum/i18nNamespaces";
 import { I18nService } from "../../services/i18nService";
@@ -17,7 +16,6 @@ class Page extends React.Component<PageProps, PageState> {
   public async componentDidMount() {
     if (!I18nService.hasResourceBundle(I18nNamespaces.I18nDemo)) {
       try {
-        console.log("load i18n");
         await I18nService.addResourceBundle(I18nNamespaces.I18nDemo);
       } catch (error) {
       } finally {
@@ -43,7 +41,7 @@ class Page extends React.Component<PageProps, PageState> {
           >
             en
           </a>
-          &nbsp;
+          <span> / </span>
           <a
             href="javascript:void;"
             onClick={() => this.changeLanguage(LanguageTypes.zh_cn)}
@@ -56,7 +54,7 @@ class Page extends React.Component<PageProps, PageState> {
   }
 
   private changeLanguage = (lng: LanguageTypes) => {
-    Cookies.set("lng", lng, { expires: 999999 });
+    localStorage.setItem("i18nextLng", lng);
     location.reload();
   };
 }

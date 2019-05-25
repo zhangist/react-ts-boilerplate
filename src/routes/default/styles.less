@@ -1,0 +1,22 @@
+.code {
+  border-radius: 3px;
+}
+
+.theme() {
+  .code {
+    background: @code_background;
+  }
+}
+
+:global(html),
+:global(html.theme-white) {
+  @code_background: #eee;
+
+  .theme();
+}
+
+:global(html.theme-black) {
+  @code_background: #333;
+
+  .theme();
+}
