@@ -12,7 +12,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import NotFound from "./components/NotFound";
-import "./app.less";
 import DefaultLoader from "./routes/default/Loader";
 import I18nDemoLoader from "./routes/i18n-demo/Loader";
 import PagesDemoLoader from "./routes/pages-demo/Loader";

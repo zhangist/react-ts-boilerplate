@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import "./global.less";
 import Loader from "./Loader";
 
 localStorage.setItem("theme", "white");
