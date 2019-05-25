@@ -10,7 +10,7 @@ export default class Page extends React.Component {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <NavLink to="/user" exact={true} activeClassName={styles.active}>
             Default
           </NavLink>

@@ -7,7 +7,7 @@ export interface PageState {}
 class Page extends React.Component<PageProps, PageState> {
   public render() {
     return (
-      <div style={{ padding: "10px 8px" }}>
+      <div style={{ padding: "10px" }}>
         <div>current param: {this.props.match.params.param}</div>
       </div>
     );

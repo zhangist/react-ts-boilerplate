@@ -43,8 +43,8 @@ class Page extends React.Component<PageProps, PageState> {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>Redux Demo</div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>Redux Demo</div>
+        <div style={{ padding: "10px" }}>
           <section>
             <h4>Count:</h4>
             <div>

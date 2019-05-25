@@ -4,8 +4,8 @@ export default class Page extends React.Component {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>User Default Title</div>
-        <div style={{ padding: "10px 8px" }}>User default content.</div>
+        <div style={{ padding: "10px" }}>User Default Title</div>
+        <div style={{ padding: "10px" }}>User default content.</div>
       </div>
     );
   }

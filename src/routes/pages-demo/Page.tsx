@@ -9,7 +9,7 @@ export default class Page extends React.Component {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <NavLink
             to="/pages-demo"
             exact={true}
@@ -34,7 +34,7 @@ export default class Page extends React.Component {
             Page B
           </NavLink>
         </div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <Switch>
             <Route path="/pages-demo" exact={true} component={DefaultLoader} />
             <Route path="/pages-demo/a" exact={true} component={ALoader} />

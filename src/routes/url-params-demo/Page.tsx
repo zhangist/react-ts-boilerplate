@@ -10,7 +10,7 @@ class Page extends React.Component<PageProps, PageState> {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <NavLink
             to="/url-params-demo"
             exact={true}

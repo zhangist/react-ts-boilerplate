@@ -5,8 +5,8 @@ export default class Page extends React.Component {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px 8px" }}>Default</div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>Default</div>
+        <div style={{ padding: "10px" }}>
           <pre className={styles.code}>{`
 |-- src
   |-+ @types
@@ -26,14 +26,14 @@ export default class Page extends React.Component {
   |-- Root.tsx
           `}</pre>
         </div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <ul>
             <li>data store</li>
             <li>i18n support</li>
             <li>multiple themes </li>
           </ul>
         </div>
-        <div style={{ padding: "10px 8px" }}>
+        <div style={{ padding: "10px" }}>
           <ul>
             <li>redux</li>
             <li>axios</li>
