@@ -1,63 +1,8 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
 import { withTranslation, WithTranslation } from "react-i18next";
-import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { I18nNamespaces } from "../../enum/i18nNamespaces";
-
-const HeaderWrapperStyled = styled.div`
-  width: 100%;
-  height: 48px;
-`;
-
-const HeaderStyled = styled.div`
-  width: 100%;
-  height: 48px;
-  line-height: 48px;
-  background: #fff;
-  position: fixed;
-  display: flex;
-`;
-
-const MenuListStyled = styled.span`
-  display: flex;
-`;
-
-const MenuListNarrowStyled = styled.span`
-  flex: auto;
-  display: none;
-  ${MenuListStyled} {
-    background: #fff;
-    flex-direction: column;
-    overflow: auto;
-    position: fixed;
-    top: 48px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-  }
-  @media (max-width: 700px) {
-    display: block;
-  }
-`;
-
-const MenuListWideStyled = styled.span`
-  @media (max-width: 700px) {
-    display: none;
-  }
-  display: block;
-  ${MenuListStyled} {
-    flex-direction: row;
-  }
-`;
-
-const NavLinkStyled = styled.span`
-  margin: 0 10px;
-  a {
-    &.active {
-      color: #333;
-    }
-  }
-`;
+import styles from "./styles.less";
 
 export interface HeaderProps extends WithTranslation {}
 export interface HeaderState {
@@ -78,14 +23,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const { t } = this.props;
     const { isMenuListOpen } = this.state;
     return (
-      <HeaderWrapperStyled>
-        <HeaderStyled>
-          <NavLinkStyled>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>
+          <div className={styles.navLink}>
             <NavLink to="/" exact={true} activeClassName="active">
               Home
             </NavLink>
-          </NavLinkStyled>
-          <MenuListNarrowStyled>
+          </div>
+          <div className={styles.narrow}>
             <div style={{ height: "100%", display: "flex" }}>
               <div style={{ flex: "auto" }} />
               <div>
@@ -98,10 +43,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               <div style={{ width: "10px" }} />
             </div>
             {isMenuListOpen ? this.renderMenuList() : null}
-          </MenuListNarrowStyled>
-          <MenuListWideStyled>{this.renderMenuList()}</MenuListWideStyled>
-        </HeaderStyled>
-      </HeaderWrapperStyled>
+          </div>
+          <div className={styles.wide}>{this.renderMenuList()}</div>
+        </div>
+      </div>
     );
   }
 
@@ -111,33 +56,33 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   private renderMenuList = () => {
     const { t } = this.props;
     return (
-      <MenuListStyled>
-        <NavLinkStyled>
+      <div className={styles.menuList}>
+        <div className={styles.navLink}>
           <NavLink to="/i18n-demo" activeClassName="active">
             {t("I18n Demo")}
           </NavLink>
-        </NavLinkStyled>
-        <NavLinkStyled>
+        </div>
+        <div className={styles.navLink}>
           <NavLink to="/pages-demo" activeClassName="active">
             {t("Pages Demo")}
           </NavLink>
-        </NavLinkStyled>
-        <NavLinkStyled>
+        </div>
+        <div className={styles.navLink}>
           <NavLink to="/redux-demo" activeClassName="active">
             {t("Redux Demo")}
           </NavLink>
-        </NavLinkStyled>
-        <NavLinkStyled>
+        </div>
+        <div className={styles.navLink}>
           <NavLink to="/url-params-demo" activeClassName="active">
             {t("Url Params Demo")}
           </NavLink>
-        </NavLinkStyled>
-        <NavLinkStyled>
+        </div>
+        <div className={styles.navLink}>
           <NavLink to="/user" activeClassName="active">
             {t("User")}
           </NavLink>
-        </NavLinkStyled>
-      </MenuListStyled>
+        </div>
+      </div>
     );
   };
 

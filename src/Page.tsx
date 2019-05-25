@@ -8,10 +8,10 @@ import { HistoryService } from "./services/historyService";
 import { I18nService } from "./services/i18nService";
 import { StoreService } from "./services/storeService";
 import { reducer } from "./store/reducer";
-import GlobalStyle from "./components/GlobalStyle";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
 import NotFound from "./components/NotFound";
+import "./app.less";
 import DefaultLoader from "./routes/default/Loader";
 import I18nDemoLoader from "./routes/i18n-demo/Loader";
 import PagesDemoLoader from "./routes/pages-demo/Loader";
@@ -63,7 +63,6 @@ class Page extends React.Component<PageProps, PageState> {
                 <Route path="/user" component={UserLoader} />
                 <Route component={NotFound} />
               </Switch>
-              <GlobalStyle />
             </div>
           </Router>
         </Provider>

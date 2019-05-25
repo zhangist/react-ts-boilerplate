@@ -1,7 +1,9 @@
 import * as React from "react";
 import Loading from "../../../../components/Loading";
 
-const Component = React.lazy(() => import("./Page"));
+const Component = React.lazy(() =>
+  import(/* webpackChunkName: "route_user_settings" */ "./Page"),
+);
 
 export default class Loader extends React.Component {
   public render() {

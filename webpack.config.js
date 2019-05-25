@@ -2,58 +2,26 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const package = require("./package.json");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 process.env.NODE_ENV = process.env.NODE_ENV || "production";
-const isDev = process.env.NODE_ENV === "development" ? true : false;
-
-const entry = {};
-const plugins = [];
-
-entry.main = ["./src/Root.tsx"];
-plugins.push(
-  new webpack.DefinePlugin({
-    VERSION: JSON.stringify(package.version),
-    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-  }),
-);
-plugins.push(
-  new HtmlWebpackPlugin({
-    filename: "index.html",
-    template: "./src/index.html",
-    favicon: "./src/favicon.ico",
-  }),
-);
-plugins.push(new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]));
-
-// remove dist dir when build
-if (process.env.BUILD_ENV) {
-  plugins.push(new CleanWebpackPlugin());
-}
-
-// webpack dev server
-if (isDev) {
-  entry.main.unshift("webpack-dev-server/client?http://localhost:9000/");
-  plugins.push(new webpack.HotModuleReplacementPlugin());
-}
-
-// webpack analyzer
-if (process.env.analyze) {
-  plugins.push(new BundleAnalyzerPlugin());
-}
 
 const config = {
   mode: process.env.NODE_ENV,
   target: "web",
   context: __dirname,
-  entry: entry,
+  entry: {
+    main: ["./src/Root.tsx"],
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
     filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[chunkhash].js",
+    chunkFilename:
+      process.env.NODE_ENV !== "production"
+        ? "[name].js"
+        : "[name]-[chunkhash].js",
   },
   module: {
     rules: [
@@ -63,26 +31,45 @@ const config = {
         include: [path.resolve(__dirname, "src")],
         exclude: [path.resolve(__dirname, "src/i18n")],
       },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { modules: true, importLoaders: 1 },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: loader => [
+                require("postcss-import")({ root: loader.resourcePath }),
+                require("autoprefixer")(),
+                require("cssnano")(),
+              ],
+            },
+          },
+          "less-loader",
+        ],
+      },
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],
+    extensions: [".js", ".ts", ".tsx", ".css", ".less"],
   },
-  plugins: plugins,
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+    }),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/index.html",
+      favicon: "./src/favicon.ico",
+    }),
+    new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]),
+  ],
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          enforce: true,
-          chunks: "all",
-        },
-      },
-    },
-    runtimeChunk: {
-      name: "manifest",
-    },
+    runtimeChunk: true,
   },
   devServer: {
     contentBase: path.resolve(__dirname, "src"),
@@ -96,5 +83,16 @@ const config = {
     hot: true,
   },
 };
+
+// webpack dev server
+if (process.env.NODE_ENV !== "production") {
+  config.entry.main.unshift("webpack-dev-server/client?http://localhost:9000/");
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+// webpack analyzer
+if (process.env.analyze) {
+  config.plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = config;

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router";
+import { Link } from "react-router-dom";
 import { ReducerKeys } from "../../enum/reducerKeys";
 import { StoreService } from "../../services/storeService";
 import { Profile } from "./interfaces/profile";
@@ -10,7 +11,6 @@ import { updateCounter } from "./store/actions";
 import ProfileComponent from "./components/Profile";
 import PageA from "./PageA";
 import PageB from "./PageB";
-import { Link } from "react-router-dom";
 
 StoreService.injectReducer(ReducerKeys.ReduxDemo, reducer);
 
