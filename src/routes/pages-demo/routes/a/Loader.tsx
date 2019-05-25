@@ -1,8 +1,8 @@
 import * as React from "react";
-import Loading from "./components/Loading";
+import Loading from "../../../../components/Loading";
 
 const Component = React.lazy(() =>
-  import(/* webpackChunkName: "route" */ "./Page"),
+  import(/* webpackChunkName: "route_pages-demo_a" */ "./Page"),
 );
 
 export default class Loader extends React.Component {

@@ -19,9 +19,9 @@ const config = {
     publicPath: "/",
     filename: "[name]-[hash].js",
     chunkFilename:
-      process.env.NODE_ENV !== "production"
-        ? "[name].js"
-        : "[name]-[chunkhash].js",
+      process.env.NODE_ENV === "production"
+        ? "[name]-[chunkhash].js"
+        : "[name].js",
   },
   module: {
     rules: [
@@ -42,11 +42,16 @@ const config = {
           {
             loader: "postcss-loader",
             options: {
-              plugins: loader => [
-                require("postcss-import")({ root: loader.resourcePath }),
-                require("autoprefixer")(),
-                require("cssnano")(),
-              ],
+              plugins: loader => {
+                const plugins = [
+                  require("postcss-import")({ root: loader.resourcePath }),
+                  require("autoprefixer")(),
+                ];
+                if (process.env.NODE_ENV === "production") {
+                  plugins.push(require("cssnano")());
+                }
+                return plugins;
+              },
             },
           },
           "less-loader",

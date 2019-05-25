@@ -1,0 +1,21 @@
+// theme
+.theme() {
+  a.active {
+    color: @navLink_active_color;
+  }
+}
+
+// white
+:global(html),
+:global(html.theme-white) {
+  @navLink_active_color: #333;
+
+  .theme();
+}
+
+// black
+:global(html.theme-black) {
+  @navLink_active_color: #666;
+
+  .theme();
+}

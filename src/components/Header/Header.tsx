@@ -25,11 +25,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <div className={styles.navLink}>
-            <NavLink to="/" exact={true} activeClassName="active">
-              Home
-            </NavLink>
-          </div>
+          <NavLink
+            to="/"
+            exact={true}
+            className={styles.navLink}
+            activeClassName={styles.active}
+          >
+            Home
+          </NavLink>
           <div className={styles.narrow}>
             <div style={{ height: "100%", display: "flex" }}>
               <div style={{ flex: "auto" }} />
@@ -57,31 +60,41 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const { t } = this.props;
     return (
       <div className={styles.menuList}>
-        <div className={styles.navLink}>
-          <NavLink to="/i18n-demo" activeClassName="active">
-            {t("I18n Demo")}
-          </NavLink>
-        </div>
-        <div className={styles.navLink}>
-          <NavLink to="/pages-demo" activeClassName="active">
-            {t("Pages Demo")}
-          </NavLink>
-        </div>
-        <div className={styles.navLink}>
-          <NavLink to="/redux-demo" activeClassName="active">
-            {t("Redux Demo")}
-          </NavLink>
-        </div>
-        <div className={styles.navLink}>
-          <NavLink to="/url-params-demo" activeClassName="active">
-            {t("Url Params Demo")}
-          </NavLink>
-        </div>
-        <div className={styles.navLink}>
-          <NavLink to="/user" activeClassName="active">
-            {t("User")}
-          </NavLink>
-        </div>
+        <NavLink
+          to="/i18n-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("I18n Demo")}
+        </NavLink>
+        <NavLink
+          to="/pages-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Pages Demo")}
+        </NavLink>
+        <NavLink
+          to="/redux-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Redux Demo")}
+        </NavLink>
+        <NavLink
+          to="/url-params-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Url Params Demo")}
+        </NavLink>
+        <NavLink
+          to="/user"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("User")}
+        </NavLink>
       </div>
     );
   };

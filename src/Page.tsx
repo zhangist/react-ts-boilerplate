@@ -9,6 +9,7 @@ import { I18nService } from "./services/i18nService";
 import { StoreService } from "./services/storeService";
 import { reducer } from "./store/reducer";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import NotFound from "./components/NotFound";
 import "./app.less";
@@ -50,19 +51,26 @@ class Page extends React.Component<PageProps, PageState> {
         <Provider store={store}>
           <Router history={history}>
             <div className="app">
-              <Header />
-              <Switch>
-                <Route path="/" exact={true} component={DefaultLoader} />
-                <Route path="/i18n-demo" component={I18nDemoLoader} />
-                <Route path="/pages-demo" component={PagesDemoLoader} />
-                <Route path="/redux-demo" component={ReduxDemoLoader} />
-                <Route
-                  path="/url-params-demo"
-                  component={UrlParamsDemoLoader}
-                />
-                <Route path="/user" component={UserLoader} />
-                <Route component={NotFound} />
-              </Switch>
+              <div className="header">
+                <Header />
+              </div>
+              <div className="content">
+                <Switch>
+                  <Route path="/" exact={true} component={DefaultLoader} />
+                  <Route path="/i18n-demo" component={I18nDemoLoader} />
+                  <Route path="/pages-demo" component={PagesDemoLoader} />
+                  <Route path="/redux-demo" component={ReduxDemoLoader} />
+                  <Route
+                    path="/url-params-demo"
+                    component={UrlParamsDemoLoader}
+                  />
+                  <Route path="/user" component={UserLoader} />
+                  <Route component={NotFound} />
+                </Switch>
+              </div>
+              <div className="footer">
+                <Footer />
+              </div>
             </div>
           </Router>
         </Provider>

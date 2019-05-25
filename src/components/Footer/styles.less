@@ -1,0 +1,32 @@
+.footer {
+  margin: 10px 8px;
+  padding: 10px 0px;
+  font-size: 12px;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+}
+
+// theme
+.theme() {
+  .footer {
+    color: @color;
+    border-color: @border_color;
+  }
+}
+
+// white
+:global(html),
+:global(html.theme-white) {
+  @color: #666;
+  @border_color: #ddd;
+
+  .theme();
+}
+
+// black
+:global(html.theme-black) {
+  @color: #666;
+  @border_color: #ccc;
+
+  .theme();
+}
