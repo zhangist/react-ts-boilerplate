@@ -16,8 +16,8 @@ export default class Page extends React.Component {
   |-+ interfaces
   |-+ routes
   |-+ services
-  |-+ utils
   |-+ store
+  |-+ utils
   |-- favicon.ico
   |-- global.less
   |-- index.html
