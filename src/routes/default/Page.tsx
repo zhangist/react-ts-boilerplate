@@ -29,13 +29,13 @@ export default class Page extends React.Component {
         <div style={{ padding: "10px" }}>
           <div>Features:</div>
           <ul>
-            <li>data store</li>
-            <li>i18n support</li>
-            <li>multiple themes </li>
+            <li>support abort http request</li>
+            <li>support i18n</li>
+            <li>support theme change</li>
           </ul>
         </div>
         <div style={{ padding: "10px" }}>
-          <div>Lib:</div>
+          <div>Dependencies:</div>
           <ul>
             <li>redux</li>
             <li>axios</li>
