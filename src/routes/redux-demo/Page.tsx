@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { ReducerKeys } from "../../enum/reducerKeys";
+import { ReducerKey } from "../../enum/reducerKey";
 import { StoreService } from "../../services/storeService";
 import { Profile } from "./interfaces/profile";
 import { reducer, State } from "./store/reducer";
 import { updateCounter } from "./store/actions";
 import ProfileComponent from "./components/Profile";
 
-StoreService.injectReducer(ReducerKeys.ReduxDemo, reducer);
+StoreService.injectReducer(ReducerKey.ReduxDemo, reducer);
 
 export interface StateToProps {
   counter: number;
@@ -23,9 +23,9 @@ export interface PageProps extends StateToProps, DispatchToProps {}
 export interface PageState {}
 
 const mapStateToProps = (state: {
-  [ReducerKeys.ReduxDemo]: State;
+  [ReducerKey.ReduxDemo]: State;
 }): StateToProps => {
-  const stateReduxDemo = state[ReducerKeys.ReduxDemo];
+  const stateReduxDemo = state[ReducerKey.ReduxDemo];
   return {
     friends: stateReduxDemo.friends,
     profile: stateReduxDemo.profile,

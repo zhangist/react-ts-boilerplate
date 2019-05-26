@@ -1,4 +1,4 @@
-import { ActionTypes } from "../enum/actionTypes";
+import { ActionType } from "../enum/actionType";
 import { Actions } from "./actions";
 
 export interface State {
@@ -10,10 +10,10 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-    case ActionTypes.App_ResetState: {
+    case ActionType.App_ResetState: {
       return action.payload || initialState;
     }
-    case ActionTypes.App_UpdateState: {
+    case ActionType.App_UpdateState: {
       return Object.assign({}, state, { ...action.payload });
     }
     default: {

@@ -1,7 +1,7 @@
 import i18next from "i18next";
 import * as LanguageDetector from "i18next-browser-languagedetector";
-import axios from "axios";
-import { I18nNamespaces } from "../enum/i18nNamespaces";
+import { I18nNamespace } from "../enum/i18nNamespace";
+import { HttpService } from "./httpService";
 
 /**
  * i18n service
@@ -30,19 +30,15 @@ export class I18nService {
    * @param path string
    */
   public static addResourceBundle(
-    namespace: I18nNamespaces,
+    namespace: I18nNamespace,
     path?: string,
   ): Promise<void> {
     return new Promise<void>(async (resolve, reject) => {
       try {
-        const response = await axios.get(
-          `/i18n/${path || namespace}/${this.i18n.language.toLowerCase()}.json`,
-        );
-        this.i18n.addResourceBundle(
-          this.i18n.language,
-          namespace,
-          response.data,
-        );
+        const url = `/i18n/${path ||
+          namespace}/${this.i18n.language.toLowerCase()}.json`;
+        const resources = await HttpService.json({ url, method: "get" });
+        this.i18n.addResourceBundle(this.i18n.language, namespace, resources);
         return resolve();
       } catch (error) {
         return reject(error);
@@ -54,7 +50,7 @@ export class I18nService {
    * has resource bundle
    * @param namespace I18nNamespaces
    */
-  public static hasResourceBundle(namespace: I18nNamespaces): boolean {
+  public static hasResourceBundle(namespace: I18nNamespace): boolean {
     return this.i18n.hasResourceBundle(this.i18n.language, namespace);
   }
 

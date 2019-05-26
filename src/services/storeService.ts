@@ -8,7 +8,7 @@ import {
   combineReducers,
 } from "redux";
 import thunk from "redux-thunk";
-import { ReducerKeys } from "../enum/reducerKeys";
+import { ReducerKey } from "../enum/reducerKey";
 
 /**
  * store service
@@ -29,7 +29,7 @@ export class StoreService {
    * @param key ReducerKeys
    * @param reducer Reducer
    */
-  public static injectReducer(key: ReducerKeys, reducer: Reducer): void {
+  public static injectReducer(key: ReducerKey, reducer: Reducer): void {
     this.reducers[key] = reducer;
     this.store.replaceReducer(combineReducers(this.reducers));
   }
@@ -38,7 +38,7 @@ export class StoreService {
    * delete reducer
    * @param key ReducerKeys
    */
-  public static deleteReducer(key: ReducerKeys): void {
+  public static deleteReducer(key: ReducerKey): void {
     if (typeof this.reducers[key] !== "undefined") {
       delete this.reducers[key];
       this.store.replaceReducer(combineReducers(this.reducers));

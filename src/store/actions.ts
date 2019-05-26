@@ -1,13 +1,13 @@
-import { ActionTypes } from "../enum/actionTypes";
+import { ActionType } from "../enum/actionType";
 import { State } from "./reducer";
 
 export interface ResetStateAction {
-  type: ActionTypes.App_ResetState;
+  type: ActionType.App_ResetState;
   payload?: State;
 }
 
 export interface UpdateStateAction {
-  type: ActionTypes.App_UpdateState;
+  type: ActionType.App_UpdateState;
   payload: Partial<State>;
 }
 
@@ -19,7 +19,7 @@ export type Actions = ResetStateAction | UpdateStateAction;
  */
 export function resetState(state?: State): ResetStateAction {
   return {
-    type: ActionTypes.App_ResetState,
+    type: ActionType.App_ResetState,
     payload: state,
   };
 }
@@ -30,7 +30,7 @@ export function resetState(state?: State): ResetStateAction {
  */
 export function updateState(state: Partial<State>): UpdateStateAction {
   return {
-    type: ActionTypes.App_UpdateState,
+    type: ActionType.App_UpdateState,
     payload: state,
   };
 }

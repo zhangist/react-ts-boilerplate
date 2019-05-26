@@ -1,4 +1,4 @@
-import { ActionTypes } from "../../../enum/actionTypes";
+import { ActionType } from "../../../enum/actionType";
 import { Profile } from "../interfaces/profile";
 import { Actions } from "./actions";
 import { counter } from "./states/counter";
@@ -21,13 +21,13 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-    case ActionTypes.ReduxDemo_ResetState: {
+    case ActionType.ReduxDemo_ResetState: {
       return action.payload || initialState;
     }
-    case ActionTypes.ReduxDemo_UpdateState: {
+    case ActionType.ReduxDemo_UpdateState: {
       return Object.assign({}, state, { ...action.payload });
     }
-    case ActionTypes.ReduxDemo_UpdateCounter: {
+    case ActionType.ReduxDemo_UpdateCounter: {
       return Object.assign({}, state, { counter: action.payload });
     }
     default: {

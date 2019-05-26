@@ -1,7 +1,7 @@
 /**
- * reducer keys
+ * reducer key
  */
-export enum ReducerKeys {
+export enum ReducerKey {
   App = "app",
   ReduxDemo = "reduxDemo",
 }

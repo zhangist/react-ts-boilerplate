@@ -1,7 +1,7 @@
 import * as React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-import { I18nNamespaces } from "../../enum/i18nNamespaces";
+import { I18nNamespace } from "../../enum/i18nNamespace";
 import styles from "./styles.less";
 
 export interface HeaderProps extends WithTranslation {}
@@ -61,6 +61,34 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <div className={styles.menuList}>
         <NavLink
+          to="/redux-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Redux Demo")}
+        </NavLink>
+        <NavLink
+          to="/http-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Http Demo")}
+        </NavLink>
+        <NavLink
+          to="/pages-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Pages Demo")}
+        </NavLink>
+        <NavLink
+          to="/url-params-demo"
+          className={styles.navLink}
+          activeClassName={styles.active}
+        >
+          {t("Url Params Demo")}
+        </NavLink>
+        <NavLink
           to="/i18n-demo"
           className={styles.navLink}
           activeClassName={styles.active}
@@ -73,27 +101,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           activeClassName={styles.active}
         >
           {t("Theme Demo")}
-        </NavLink>
-        <NavLink
-          to="/pages-demo"
-          className={styles.navLink}
-          activeClassName={styles.active}
-        >
-          {t("Pages Demo")}
-        </NavLink>
-        <NavLink
-          to="/redux-demo"
-          className={styles.navLink}
-          activeClassName={styles.active}
-        >
-          {t("Redux Demo")}
-        </NavLink>
-        <NavLink
-          to="/url-params-demo"
-          className={styles.navLink}
-          activeClassName={styles.active}
-        >
-          {t("Url Params Demo")}
         </NavLink>
         <NavLink
           to="/user"
@@ -123,4 +130,4 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 }
 
-export default withTranslation(I18nNamespaces.App)(Header);
+export default withTranslation(I18nNamespace.App)(Header);

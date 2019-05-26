@@ -27,6 +27,7 @@ export default class Page extends React.Component {
           `}</pre>
         </div>
         <div style={{ padding: "10px" }}>
+          <div>Features:</div>
           <ul>
             <li>data store</li>
             <li>i18n support</li>
@@ -34,6 +35,7 @@ export default class Page extends React.Component {
           </ul>
         </div>
         <div style={{ padding: "10px" }}>
+          <div>Lib:</div>
           <ul>
             <li>redux</li>
             <li>axios</li>
