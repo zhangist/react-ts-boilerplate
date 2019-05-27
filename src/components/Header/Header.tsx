@@ -2,7 +2,7 @@ import * as React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { I18nNamespace } from "../../enum/i18nNamespace";
-import styles from "./styles.less";
+import styles from "./styles.scss";
 
 export interface HeaderProps extends WithTranslation {}
 export interface HeaderState {

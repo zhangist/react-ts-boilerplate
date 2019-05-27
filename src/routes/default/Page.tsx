@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./styles.less";
+import styles from "./styles.scss";
 
 export default class Page extends React.Component {
   public render() {
@@ -19,7 +19,7 @@ export default class Page extends React.Component {
   |-+ store
   |-+ utils
   |-- favicon.ico
-  |-- global.less
+  |-- global.scss
   |-- index.html
   |-- Loader.tsx
   |-- Page.tsx

@@ -33,36 +33,22 @@ const config = {
         exclude: [path.resolve(__dirname, "src/i18n")],
       },
       {
-        test: /\.(css|less)$/,
+        test: /\.(css|scss)$/,
         use: [
           "style-loader",
           {
             loader: "css-loader",
             options: { modules: true, importLoaders: 1 },
           },
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: loader => {
-                const plugins = [
-                  require("postcss-import")({ root: loader.resourcePath }),
-                  require("autoprefixer")(),
-                ];
-                if (process.env.NODE_ENV === "production") {
-                  plugins.push(require("cssnano")());
-                }
-                return plugins;
-              },
-            },
-          },
-          "less-loader",
+          "postcss-loader",
+          "sass-loader",
         ],
         exclude: [path.resolve(__dirname, "node_modules")],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".css", ".less"],
+    extensions: [".js", ".ts", ".tsx", ".css", ".scss"],
   },
   plugins: [
     new webpack.DefinePlugin({

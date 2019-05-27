@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./global.less";
+import "./global.scss";
 import Loader from "./Loader";
 
 // theme

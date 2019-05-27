@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
-import styles from "./styles.less";
+import styles from "./styles.scss";
 import DefaultLoader from "./routes/default/Loader";
 import ALoader from "./routes/a/Loader";
 import BLoader from "./routes/b/Loader";

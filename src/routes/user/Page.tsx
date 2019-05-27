@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import NotFound from "../../components/NotFound";
-import styles from "./styles.less";
+import styles from "./styles.scss";
 import DefaultLoader from "./routes/default/Loader";
 import ProfileLoader from "./routes/profile/Loader";
 import SettingsLoader from "./routes/settings/Loader";
