@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
-import styles from "./styles.scss";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 import DefaultLoader from "./routes/default/Loader";
 import ALoader from "./routes/a/Loader";
 import BLoader from "./routes/b/Loader";
@@ -13,7 +13,7 @@ export default class Page extends React.Component {
           <NavLink
             to="/pages-demo"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Default
           </NavLink>
@@ -21,7 +21,7 @@ export default class Page extends React.Component {
           <NavLink
             to="/pages-demo/a"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Page A
           </NavLink>
@@ -29,7 +29,7 @@ export default class Page extends React.Component {
           <NavLink
             to="/pages-demo/b"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Page B
           </NavLink>

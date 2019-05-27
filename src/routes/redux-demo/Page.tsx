@@ -1,8 +1,10 @@
 import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { ReducerKey } from "../../enum/reducerKey";
 import { StoreService } from "../../services/storeService";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 import { Profile } from "./interfaces/profile";
 import { reducer, State } from "./store/reducer";
 import { updateCounter } from "./store/actions";
@@ -43,7 +45,15 @@ class Page extends React.Component<PageProps, PageState> {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px" }}>Redux Demo</div>
+        <div style={{ padding: "10px" }}>
+          <NavLink
+            to="/redux-demo"
+            exact={true}
+            activeClassName={subMenuStyles.active}
+          >
+            Default
+          </NavLink>
+        </div>
         <div style={{ padding: "10px" }}>
           <section>
             <h4>Count:</h4>

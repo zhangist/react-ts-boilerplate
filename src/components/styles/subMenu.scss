@@ -5,7 +5,7 @@
 }
 
 :global(html),
-:global(html.theme-white) {
+:global(html[theme="white"]) {
   $theme: (
     navLink_active_color: #333333,
   );
@@ -13,7 +13,7 @@
   @include theme($theme);
 }
 
-:global(html.theme-black) {
+:global(html[theme="black"]) {
   $theme: (
     navLink_active_color: #cccccc,
   );

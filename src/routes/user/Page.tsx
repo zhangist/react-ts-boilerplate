@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 import NotFound from "../../components/NotFound";
-import styles from "./styles.scss";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 import DefaultLoader from "./routes/default/Loader";
 import ProfileLoader from "./routes/profile/Loader";
 import SettingsLoader from "./routes/settings/Loader";
@@ -11,14 +11,18 @@ export default class Page extends React.Component {
     return (
       <div>
         <div style={{ padding: "10px" }}>
-          <NavLink to="/user" exact={true} activeClassName={styles.active}>
+          <NavLink
+            to="/user"
+            exact={true}
+            activeClassName={subMenuStyles.active}
+          >
             Default
           </NavLink>
           <span> / </span>
           <NavLink
             to="/user/profile"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Profile
           </NavLink>
@@ -26,7 +30,7 @@ export default class Page extends React.Component {
           <NavLink
             to="/user/settings"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Settings
           </NavLink>

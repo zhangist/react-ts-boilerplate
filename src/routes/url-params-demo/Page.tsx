@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
-import styles from "./styles.scss";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 import DefaultLoader from "./routes/default/Loader";
 
 export interface PageProps {}
@@ -14,7 +14,7 @@ class Page extends React.Component<PageProps, PageState> {
           <NavLink
             to="/url-params-demo"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Default
           </NavLink>
@@ -22,7 +22,7 @@ class Page extends React.Component<PageProps, PageState> {
           <NavLink
             to="/url-params-demo/1"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Param 1
           </NavLink>
@@ -30,7 +30,7 @@ class Page extends React.Component<PageProps, PageState> {
           <NavLink
             to="/url-params-demo/2"
             exact={true}
-            activeClassName={styles.active}
+            activeClassName={subMenuStyles.active}
           >
             Param 2
           </NavLink>

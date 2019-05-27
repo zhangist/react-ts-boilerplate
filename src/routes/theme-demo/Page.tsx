@@ -1,9 +1,7 @@
 import * as React from "react";
-
-enum ThemeTypes {
-  white = "white",
-  black = "black",
-}
+import { NavLink } from "react-router-dom";
+import { Theme } from "../../enum/theme";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 
 export interface PageProps {}
 export interface PageState {}
@@ -12,18 +10,26 @@ class Page extends React.Component<PageProps, PageState> {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px" }}>Default</div>
+        <div style={{ padding: "10px" }}>
+          <NavLink
+            to="/theme-demo"
+            exact={true}
+            activeClassName={subMenuStyles.active}
+          >
+            Default
+          </NavLink>
+        </div>
         <div style={{ padding: "10px" }}>
           <a
             href="javascript:void(0);"
-            onClick={() => this.changeTheme(ThemeTypes.white)}
+            onClick={() => this.changeTheme(Theme.White)}
           >
             white
           </a>
           <span> / </span>
           <a
             href="javascript:void(0);"
-            onClick={() => this.changeTheme(ThemeTypes.black)}
+            onClick={() => this.changeTheme(Theme.Black)}
           >
             black
           </a>
@@ -32,9 +38,13 @@ class Page extends React.Component<PageProps, PageState> {
     );
   }
 
-  private changeTheme = (theme: ThemeTypes) => {
+  /**
+   * change theme
+   */
+  private changeTheme = (theme: Theme) => {
     localStorage.setItem("theme", theme);
-    location.reload();
+    const HTML_NODE = document.getElementsByTagName("html")[0];
+    HTML_NODE.setAttribute("theme", theme);
   };
 }
 

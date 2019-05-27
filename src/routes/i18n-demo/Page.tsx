@@ -1,8 +1,10 @@
 import * as React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 import { I18nNamespace } from "../../enum/i18nNamespace";
 import { I18nService } from "../../services/i18nService";
 import Loading from "../../components/Loading";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 
 enum LanguageTypes {
   en = "en",
@@ -32,7 +34,15 @@ class Page extends React.Component<PageProps, PageState> {
     const { t } = this.props;
     return (
       <div>
-        <div style={{ padding: "10px" }}>Default</div>
+        <div style={{ padding: "10px" }}>
+          <NavLink
+            to="/i18n-demo"
+            exact={true}
+            activeClassName={subMenuStyles.active}
+          >
+            Default
+          </NavLink>
+        </div>
         <div style={{ padding: "10px" }}>{t("Hello!")}</div>
         <div style={{ padding: "10px" }}>
           <a

@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import NotFound from "./components/NotFound";
+import "./components/styles/global.scss";
 import DefaultLoader from "./routes/default/Loader";
 import ReduxDemoLoader from "./routes/redux-demo/Loader";
 import HttpDemoLoader from "./routes/http-demo/Loader";

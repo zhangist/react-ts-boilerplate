@@ -1,29 +1,35 @@
 import * as React from "react";
+import { NavLink } from "react-router-dom";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 import styles from "./styles.scss";
 
 export default class Page extends React.Component {
   public render() {
     return (
       <div>
-        <div style={{ padding: "10px" }}>Default</div>
+        <div style={{ padding: "10px" }}>
+          <NavLink to="/" exact={true} activeClassName={subMenuStyles.active}>
+            Default
+          </NavLink>
+        </div>
         <div style={{ padding: "10px" }}>
           <pre className={styles.code}>{`
-|-- src
-  |-+ @types
-  |-+ components
-  |-+ containers
-  |-+ enum
-  |-+ interfaces
-  |-+ routes
-  |-+ services
-  |-+ store
-  |-+ utils
-  |-- favicon.ico
-  |-- global.scss
-  |-- index.html
-  |-- Loader.tsx
-  |-- Page.tsx
-  |-- Root.tsx
+- src
+  + @types
+  + components
+  + containers
+  + enum
+  + interfaces
+  + routes
+  + services
+  + store
+  + utils
+    favicon.ico
+    global.scss
+    index.html
+    Loader.tsx
+    Page.tsx
+    Root.tsx
           `}</pre>
         </div>
         <div style={{ padding: "10px" }}>
@@ -31,7 +37,7 @@ export default class Page extends React.Component {
           <ul>
             <li>support abort http request</li>
             <li>support i18n</li>
-            <li>support theme change</li>
+            <li>support change theme</li>
           </ul>
         </div>
         <div style={{ padding: "10px" }}>
@@ -40,7 +46,7 @@ export default class Page extends React.Component {
             <li>redux</li>
             <li>axios</li>
             <li>i18next</li>
-            <li>less/css-modules</li>
+            <li>scss/postcss</li>
           </ul>
         </div>
       </div>

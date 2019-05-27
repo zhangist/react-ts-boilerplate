@@ -21,7 +21,7 @@
   }
 
   html,
-  html.theme-white {
+  html[theme="white"] {
     $theme: (
       main_color: #000000,
       body_background: #f5f5f5,
@@ -31,7 +31,7 @@
     @include theme($theme);
   }
 
-  html.theme-black {
+  html[theme="black"] {
     $theme: (
       main_color: #cccccc,
       body_background: #333333,

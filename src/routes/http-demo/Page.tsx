@@ -1,6 +1,8 @@
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 import { HttpService } from "../../services/httpService";
 import { AbortContext } from "../../interfaces/abortContext";
+import subMenuStyles from "../../components/styles/subMenu.scss";
 
 export interface PageProps {}
 export interface PageState {
@@ -22,7 +24,15 @@ class Page extends React.Component<PageProps, PageState> {
     const { data, error } = this.state;
     return (
       <div>
-        <div style={{ padding: "10px" }}>Default</div>
+        <div style={{ padding: "10px" }}>
+          <NavLink
+            to="/http-demo"
+            exact={true}
+            activeClassName={subMenuStyles.active}
+          >
+            Default
+          </NavLink>
+        </div>
         <div style={{ padding: "10px" }}>
           <button onClick={this.getData}>get data</button>
           <span> / </span>
