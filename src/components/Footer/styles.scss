@@ -16,8 +16,8 @@
 :global(html),
 :global(html[theme="white"]) {
   $theme: (
-    footer_color: #666666,
-    border_color: #dddddd,
+    footer_color: #666,
+    border_color: #ddd,
   );
 
   @include theme($theme);
@@ -25,8 +25,8 @@
 
 :global(html[theme="black"]) {
   $theme: (
-    footer_color: #999999,
-    border_color: #666666,
+    footer_color: #999,
+    border_color: #666,
   );
 
   @include theme($theme);

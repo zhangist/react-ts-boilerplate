@@ -66,9 +66,9 @@ a.navLink {
 :global(html),
 :global(html[theme="white"]) {
   $theme: (
-    header_background: #ffffff,
-    menuList_background: #ffffff,
-    navLink_active_color: #333333,
+    header_background: #fff,
+    menuList_background: #fff,
+    navLink_active_color: #333,
     navLink_active_background: #f5f5f5,
   );
 
@@ -77,10 +77,10 @@ a.navLink {
 
 :global(html[theme="black"]) {
   $theme: (
-    header_background: #222222,
-    menuList_background: #222222,
-    navLink_active_color: #ffffff,
-    navLink_active_background: #333333,
+    header_background: #222,
+    menuList_background: #222,
+    navLink_active_color: #fff,
+    navLink_active_background: #333,
   );
 
   @include theme($theme);
