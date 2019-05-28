@@ -49,6 +49,17 @@ export default class Page extends React.Component {
             <li>scss/postcss</li>
           </ul>
         </div>
+        <div style={{ padding: "10px" }}>
+          <div>
+            <span>Github: </span>
+            <a
+              target="_blank"
+              href="https://github.com/zhangist/react-ts-boilerplate"
+            >
+              zhangist/react-ts-boilerplate
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
