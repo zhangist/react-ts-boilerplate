@@ -1,3 +1,3 @@
 # react-ts-boilerplate
 
-The boilerplate of React-Typescript.
+The boilerplate of React with typescript.
