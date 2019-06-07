@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 import { HttpService } from "../../services/httpService";
-import { AbortContext } from "../../interfaces/abortContext";
+import { AbortContext } from "../../interface/abortContext";
 import subMenuStyles from "../../components/styles/subMenu.scss";
 
 export interface PageProps {}

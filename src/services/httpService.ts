@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { StatusCode } from "../enum/statusCode";
-import { AbortContext } from "../interfaces/abortContext";
-import { ApiResponse } from "../interfaces/apiResponse";
-import { RequestConfig } from "../interfaces/requestConfig";
+import { AbortContext } from "../interface/abortContext";
+import { ApiResponse } from "../interface/apiResponse";
+import { RequestConfig } from "../interface/requestConfig";
 
 /**
  * http service
