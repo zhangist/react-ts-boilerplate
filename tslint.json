@@ -1,7 +1,5 @@
 {
-  "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "jsRules": {},
   "rules": {
     "arrow-parens": false,
     "interface-name": false,
@@ -12,8 +10,7 @@
     "object-literal-key-quotes": false,
     "object-literal-sort-keys": false,
     "semicolon": [true, "always", "strict-bound-class-methods"],
-    "file-name-casing": [true, { ".tsx": "pascal-case", ".ts": "camel-case" }],
+    "file-name-casing": [true, { ".ts": "camel-case", ".tsx": "pascal-case" }],
     "jsx-no-lambda": false
-  },
-  "rulesDirectory": []
+  }
 }
