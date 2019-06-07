@@ -1,6 +1,6 @@
 import i18next from "i18next";
 import * as LanguageDetector from "i18next-browser-languagedetector";
-import { I18nNamespace } from "../enum/i18nNamespace";
+import { I18nNamespace } from "../enums/i18nNamespace";
 import { HttpService } from "./httpService";
 
 /**

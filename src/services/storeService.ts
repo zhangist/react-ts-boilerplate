@@ -8,7 +8,7 @@ import {
   combineReducers,
 } from "redux";
 import thunk from "redux-thunk";
-import { ReducerKey } from "../enum/reducerKey";
+import { ReducerKey } from "../enums/reducerKey";
 
 /**
  * store service

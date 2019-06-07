@@ -1,4 +1,4 @@
-import { ActionType } from "../../../enum/actionType";
+import { ActionType } from "../../../enums/actionType";
 import { Profile } from "../interfaces/profile";
 import { Actions } from "./actions";
 import { counter } from "./states/counter";

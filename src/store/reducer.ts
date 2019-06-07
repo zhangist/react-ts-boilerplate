@@ -1,4 +1,4 @@
-import { ActionType } from "../enum/actionType";
+import { ActionType } from "../enums/actionType";
 import { Actions } from "./actions";
 
 export interface State {

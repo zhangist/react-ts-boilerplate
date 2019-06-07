@@ -2,7 +2,7 @@ import * as React from "react";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { ReducerKey } from "../../enum/reducerKey";
+import { ReducerKey } from "../../enums/reducerKey";
 import { StoreService } from "../../services/storeService";
 import subMenuStyles from "../../components/styles/subMenu.scss";
 import { Profile } from "./interfaces/profile";

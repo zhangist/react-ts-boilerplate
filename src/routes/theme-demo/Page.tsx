@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import { Theme } from "../../enum/theme";
+import { Theme } from "../../enums/theme";
 import subMenuStyles from "../../components/styles/subMenu.scss";
 
 export interface PageProps {}

@@ -1,4 +1,4 @@
-import { ActionType } from "../enum/actionType";
+import { ActionType } from "../enums/actionType";
 import { State } from "./reducer";
 
 export interface ResetStateAction {

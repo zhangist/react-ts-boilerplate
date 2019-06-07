@@ -38,7 +38,7 @@ const config = {
           "style-loader",
           {
             loader: "css-loader",
-            options: { modules: true, importLoaders: 1 },
+            options: { modules: true },
           },
           "postcss-loader",
           "sass-loader",
@@ -56,10 +56,10 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/index.html",
-      favicon: "./src/favicon.ico",
+      template: "./public/index.html",
+      favicon: "./public/favicon.ico",
     }),
-    new CopyWebpackPlugin([{ from: "src/i18n", to: "i18n" }]),
+    new CopyWebpackPlugin([{ from: "./public/i18n", to: "i18n" }]),
   ],
   optimization: {
     runtimeChunk: true,
